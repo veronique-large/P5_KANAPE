@@ -1,0 +1,1 @@
+fetch("https://locallhot/3000/api/products")
