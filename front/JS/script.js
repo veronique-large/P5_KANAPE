@@ -5,57 +5,36 @@ fetch("http://localhost:3000/api/products")
      }
     })
     /**creation de la boucle pour obtenir les informations de chaque article */
-    .then(function (products){
+    .then(function(products){
         products.forEach(product => {
 
                
     let items = document.getElementById('items');
     
     let a = document.createElement('a');
-    a.href ="./product.html?id=42"+product._id;
-    items.appendChild (a);
+    a.href ="./product.html"+"?id="+product._id;
+    items.appendChild(a);
 
     let article = document.createElement('article');
-    a.appendChild (article);
+    a.appendChild(article);
      
     let img = document.createElement('img');
     img.classList.add("productImage");
-    img.src = product. imageUrl;
-    img.alt = product. altTxt;
-    article.appendChild (img);
+    img.src = product.imageUrl;
+    img.alt = product.altTxt;
+    article.appendChild(img);
 
     let h3 = document.createElement('h3');
     h3.classList.add("productSofaName");
-    article.appendChild (h3);
-     
-    var id = (' 107fb5b75607497b96722bda5b504926');
-    var Text = document.createTextNode("Kanap Sinopé");
-    h3.appendChild(Text);})
-
+    article.appendChild(h3);
+    h3.innerHTML = product.name;
+  
     let p = document.createElement('p');
     p.classList.add("productDescription");
-    p.innerHTML = productDescription;
-    article.appendChild (p);
-    let items = document.getElementById('items');
+    p.innerHTML = product.description;
+    article.appendChild(p);
 
 
-    const Kanap = [
-        "kanap Sinoé",
-        "kanap Cyllène",
-        "kanap Calycé",
-        "kanap Autonoé",
-        "kanap Eurydomé",
-        "kanap Hélicé",
-        "kanap Thyoné",
-        "kanap orthosie"
-    ]
-    for (let i in products) {
-        console.log("products" + productSofaName[i]);
-    }
-    var id = (' 415b7cacb65d43b2b5c1ff70f3393ad1')
-    var Text = document.createTextNode("Kanap Cyllène");
-    if(Kanap == "_id : 415b7cacb65d43b2b5c1ff70f3393ad1"){//si kanap a cet id
-        console.log("kanap Cyllène");
-    }
-    
+     
 })
+    })
