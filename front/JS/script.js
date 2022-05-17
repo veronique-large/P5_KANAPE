@@ -28,7 +28,7 @@ fetch("http://localhost:3000/api/products")
     h3.classList.add("productSofaName");
     article.appendChild (h3);
      
-    var id = ('_id 107fb5b75607497b96722bda5b504926');
+    var id = (' 107fb5b75607497b96722bda5b504926');
     var Text = document.createTextNode("Kanap Sinopé");
     h3.appendChild(Text);})
 
@@ -36,6 +36,8 @@ fetch("http://localhost:3000/api/products")
     p.classList.add("productDescription");
     p.innerHTML = productDescription;
     article.appendChild (p);
+    let items = document.getElementById('items');
+
 
     const Kanap = [
         "kanap Sinoé",
@@ -50,9 +52,10 @@ fetch("http://localhost:3000/api/products")
     for (let i in products) {
         console.log("products" + productSofaName[i]);
     }
-
-
-
-        });
-
+    var id = (' 415b7cacb65d43b2b5c1ff70f3393ad1')
+    var Text = document.createTextNode("Kanap Cyllène");
+    if(Kanap == "_id : 415b7cacb65d43b2b5c1ff70f3393ad1"){//si kanap a cet id
+        console.log("kanap Cyllène");
+    }
     
+})
