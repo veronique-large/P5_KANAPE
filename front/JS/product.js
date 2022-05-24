@@ -25,6 +25,9 @@ fetch(str)
             var p = document.getElementById('price');
             var Text = document.createTextNode("1849");
             p.appendChild(Text);
+                
+            const description = document.getElementById('description');
+            description.innerHTML = (description);
 
         })
     }
