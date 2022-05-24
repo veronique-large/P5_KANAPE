@@ -3,21 +3,11 @@ const id = url.get('id');
 const str = 'http://localhost:3000/api/products/'+id;
 
 fetch(str)
-    /*.then(reponse => reponse.json())*/ 
     .then(function(reponse) {
         if (reponse.ok) {
             return reponse.json()
     .then(reponse2 => console.log(reponse2))
-    
-/*fetch("http://localhost:3000/api/products")
-.then(res => {
-    if(res.ok){
-        res.json().then(data => {
-})
-    }
-})*/
-
-   
+      
 .then(function(products){ 
     this.article = products;
     this.products = id+products;
