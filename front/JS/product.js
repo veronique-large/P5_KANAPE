@@ -6,29 +6,32 @@ fetch(str)
     .then(function(reponse) {
         if (reponse.ok) {
             return reponse.json()
-    .then(reponse2 => console.log(reponse2))
-      
-.then(function(products){ 
-    this.article = products;
-    this.products = id+products;
+        }
+    }) 
+.then(function(product) { 
     
-            /*let item_img = document.getElementsByClassName('item_img');*/
+            let item__img = document.getElementsByClassName('item__img');
+            /*article.appendChild(item__img);*/
 
             let img = document.createElement('img');
             img.classList.add("productImage");
-            img.src = 'http://localhost:3000/images/kanap01.jpeg';
-            /*item_img.appendChild(img);*/
-
+            img.src = product.imageUrl;
+            img.alt = product.altTxt;
+            /*item__img.appendChild(img);*/
+            
             let title = document.getElementById('title'); 
-            title.innerHTML = ('kanap Sinopé');
+            title.innerHTML = product.name;
 
-            var p = document.getElementById('price');
-            var Text = document.createTextNode("1849");
-            p.appendChild(Text);
-                
-            const description = document.getElementById('description');
-            description.innerHTML = (description);
+            let price = document.getElementById('price');
+            price.innerHTML = product.price;
 
-        })
-    }
+            let description = document.getElementById('description');
+            description.innerHTML = product.description;
+
+            
 })
+
+
+
+    
+
