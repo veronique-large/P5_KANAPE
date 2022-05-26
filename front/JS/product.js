@@ -11,13 +11,12 @@ fetch(str)
 .then(function(product) { 
     
             let item__img = document.getElementsByClassName('item__img');
-            /*article.appendChild(item__img);*/
 
             let img = document.createElement('img');
             img.classList.add("productImage");
             img.src = product.imageUrl;
             img.alt = product.altTxt;
-            /*item__img.appendChild(img);*/
+            item__img.appendChild(img);
             
             let title = document.getElementById('title'); 
             title.innerHTML = product.name;
