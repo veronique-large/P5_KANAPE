@@ -8,16 +8,16 @@ fetch(str)
             return reponse.json()
         }
     }) 
-.then(function(product) { 
+.then(function(product) {
     
-            let item__img = document.getElementsByClassName('item__img');
+    let itemImg = document.querySelector('.item__img');
 
             let img = document.createElement('img');
             img.classList.add("productImage");
             img.src = product.imageUrl;
             img.alt = product.altTxt;
-            item__img.appendChild(img);
-            
+            itemImg.appendChild(img);
+          
             let title = document.getElementById('title'); 
             title.innerHTML = product.name;
 
@@ -27,14 +27,24 @@ fetch(str)
             let description = document.getElementById('description');
             description.innerHTML = product.description;
 
-            let colors = document.getElementById('colors');
-            colors.innerHTML = product.colors;
+            let colors = document.querySelector('#colors');
+            product.colors.forEach(color => {
+                let optionColor = document.createElement('option');
+                colors.appendChild(optionColor);
+                optionColor.innerHTML = color;
+                optionColor.value = color;
+                    
+            });
             
-            let option = document.createElement('option');
-            colors.appendChild = option;
-})
+        })          
+                 
+          
+
+
 
 
 
     
+
+
 
