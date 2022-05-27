@@ -27,7 +27,11 @@ fetch(str)
             let description = document.getElementById('description');
             description.innerHTML = product.description;
 
+            let colors = document.getElementById('colors');
+            colors.innerHTML = product.colors;
             
+            let option = document.createElement('option');
+            colors.appendChild = option;
 })
 
 
