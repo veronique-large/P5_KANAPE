@@ -27,15 +27,33 @@ fetch(str)
             let description = document.getElementById('description');
             description.innerHTML = product.description;
 
-            let colors = document.querySelector('#colors');
-            product.colors.forEach(color => {
-                let optionColor = document.createElement('option');
-                colors.appendChild(optionColor);
-                optionColor.innerHTML = color;
-                optionColor.value = color;
-                    
-            });
-            
+            let colors = document.querySelector('#colors');/* je créé une variable pour lui donner comme référence la balise liée à l’ID Colors*/
+
+            product.colors.forEach(color => {/* je créé une boucle pour appeler les données de toutes les couleurs, product correspond au produit, colors à leur valeur,product.colors(identifiant) identifie les couleurs du produit, color(argument) fait reference à la couleur ce qui permet de l'appeler*/
+                let optionColor = document.createElement('option');/* je créé une variable que j'appelle optionColor  pour créer l'element option*/
+                colors.appendChild(optionColor);/*je definie la variable optionColor comme étant l'enfant de colors*/
+                optionColor.innerHTML = color;/*J'applique la variable optionColors à l'interieur de HTML, la valeur du mot clé color*/
+                optionColor.value = color; /*J’applique à la variable optionColor, la valeur du mot clé color (paramètre dans la boucle ligne 31) */     
+            });/*la fermeture du bloc*/
+
+            let quantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme référence la balise liée à l'ID quantity*/
+ 
+            const EventTarget = function (product) {/*je créé une constante pour cibler les fonctions de l'élément product*/
+            this.listeners = {}/*cette ecoute du produit*/
+        }
+            EventTarget.prototype.listeners = null/*la cible de l'element est null*/
+            EventTarget.prototype.addEventlistener = function (event) {/*ecouter les fonctions de l'evenement cible avec l'evenement*/
+                if(type =  id, colors, quantity);/*si le type est égal à id colors et quantite*/
+             id = value.product;/*la valeur du produit est égal à son ID*/
+             colors = value.product.colors;/*la valeur des couleurs du produit son égal à sa couleur*/
+             quantity = value.quantity;/*la valeur de quantity est égal à sa valeur*/
+    }
+    let buttonToCart = document.querySelector('#addToCart');/*je créé une variable pour lui donner comme référence la balise liée à l'ID buttonToCart*/
+     buttonToCart.addEventListener('click', )/*j'ajoute un ecouteur d'evenements sur le buttonToCart*/
+
+
+     
+
         })          
                  
           
