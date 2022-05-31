@@ -43,14 +43,20 @@ fetch(str)
         }
             EventTarget.prototype.listeners = null/*la cible de l'element est null*/
             EventTarget.prototype.addEventlistener = function (event) {/*ecouter les fonctions de l'evenement cible avec l'evenement*/
-                if(type =  id, colors, quantity);/*si le type est égal à id colors et quantite*/
+                if(type = product);/*si le type est égal au produit*/
              id = value.product;/*la valeur du produit est égal à son ID*/
              colors = value.product.colors;/*la valeur des couleurs du produit son égal à sa couleur*/
              quantity = value.quantity;/*la valeur de quantity est égal à sa valeur*/
     }
-    let buttonToCart = document.querySelector('#addToCart');/*je créé une variable pour lui donner comme référence la balise liée à l'ID buttonToCart*/
-     buttonToCart.addEventListener('click', )/*j'ajoute un ecouteur d'evenements sur le buttonToCart*/
+   /* colors.addEventListener('click', function() {
+        colors = EvenTarget.value;
+    }*/
 
+
+    let buttonToCart = document.querySelector('#addToCart');/*je créé une variable pour lui donner comme référence la balise liée à l'ID buttonToCart*/
+     buttonToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
+        buttonToCart.innerHTML = "c'est ajouté";/* le contenu de l'element est changé*/
+})
 
      
 
