@@ -36,7 +36,7 @@ fetch(str)
                 optionColor.value = color; /*J’applique à la variable optionColor, la valeur du mot cle color (paramètre dans la boucle ligne 31) */     
             });/*la fermeture du bloc*/
 
-            let quantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
+            let itemQuantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
  
             const EventTarget = function (product) {/*je cree une constante pour cibler les fonctions de l'element product*/
             this.listeners = {}/*cette ecoute du produit*/
@@ -53,17 +53,23 @@ fetch(str)
      buttonToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
         buttonToCart.innerHTML = "c'est ajouté";/* le contenu de l'element est change*/
 })
-    document.addEventListener('DOMContentLoaded', function() {/*je cree une ecoute des fonctions chargees dans le DOM*/
-        document.getById('select[name= "id_product"]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie l'id*/
-        document.querySelector('select[name= "id_colors, id_quantity]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie la coleur, la quantite*/
-    }); 
+    if(localStorage.getItem("quantity") != null)//si le local storage est different de null
+        quantity = 'product ${localStorage.getItem("quantity")}';//la quantite est egal au produit et au localstorage
+    buttonToCart.onclick = () =>{//quand onclick sur le bouton
+        localStorage.setItem("quantity",itemQuantity.value);//ajout de la cle et valeur de la quantite dans le local storage :)
+    }
+    /*
+   document.addEventListener('DOMContentLoaded', function() {/*je cree une ecoute des fonctions chargees dans le DOM*/
+   /*     document.getById('select[name= "id_product"]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie l'id*/
+    /*    document.querySelector('select[name= "id_colors, id_quantity]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie la coleur, la quantite*/
+   /* }); 
     function changeEventhandler(event) {/*cibler la fonction quand elle change*/
-        if (EventTarget.value= id) ajout('product_id');/*si l'element cible a la valeur id, ajoute l'id du produit*/
-        else return;//sinon revient
+       /* if (EventTarget.value= id) ajout('product_id');/*si l'element cible a la valeur id, ajoute l'id du produit*/
+       /* else return;//sinon revient
     }
     function changeEventhandler(event) {
         if (EventTarget.value= id_colors) ajout('color');//si la valeur de l'element cible est id couleur, ajoute la couleur
         else ('choice' + EventTarget + 'color');//sinon suivre le choix de la couleur
     }
-   
+   */ 
 });
