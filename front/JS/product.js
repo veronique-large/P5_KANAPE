@@ -38,38 +38,15 @@ fetch(str)
 
             let itemQuantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
  
-            const EventTarget = function (product) {/*je cree une constante pour cibler les fonctions de l'element product*/
-            this.listeners = {}/*cette ecoute du produit*/
-        }
-            EventTarget.prototype.listeners = null/*la cible de l'element est null*/
-            EventTarget.prototype.addEventlistener = function (event) {/*ecouter les fonctions de l'evenement cible avec l'evenement*/
-                if(type = product);/*si le type est egal au produit*/
-             id = value.product;/*la valeur du produit est egal à son ID*/
-             colors = value.product.colors;/*la valeur des couleurs du produit son egal a sa couleur*/
-             quantity = value.quantity;/*la valeur de quantity est egal à sa valeur*/
-    }
    
     let buttonToCart = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
      buttonToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
-        buttonToCart.innerHTML = "c'est ajouté";/* le contenu de l'element est change*/
-})
-    if(localStorage.getItem("quantity") != null)//si le local storage est different de null
-        quantity = 'product ${localStorage.getItem("quantity")}';//la quantite est egal au produit et au localstorage
-    buttonToCart.onclick = () =>{//quand onclick sur le bouton
-        localStorage.setItem("quantity",itemQuantity.value);//ajout de la cle et valeur de la quantite dans le local storage :)
-    }
-    /*
-   document.addEventListener('DOMContentLoaded', function() {/*je cree une ecoute des fonctions chargees dans le DOM*/
-   /*     document.getById('select[name= "id_product"]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie l'id*/
-    /*    document.querySelector('select[name= "id_colors, id_quantity]').onchange=changeEventhandler;/*lors de la gestion de l'evenement, on modifie la coleur, la quantite*/
-   /* }); 
-    function changeEventhandler(event) {/*cibler la fonction quand elle change*/
-       /* if (EventTarget.value= id) ajout('product_id');/*si l'element cible a la valeur id, ajoute l'id du produit*/
-       /* else return;//sinon revient
-    }
-    function changeEventhandler(event) {
-        if (EventTarget.value= id_colors) ajout('color');//si la valeur de l'element cible est id couleur, ajoute la couleur
-        else ('choice' + EventTarget + 'color');//sinon suivre le choix de la couleur
-    }
-   */ 
+            let kanap = {
+                id:id, 
+                colors:("colors",document.getElementById("colors").value),
+                quantity:("quantity",document.getElementById("quantity").value)
+            }
+    
+   
+});
 });
