@@ -39,14 +39,21 @@ fetch(str)
             let itemQuantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
  
    
-    let buttonToCart = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
-     buttonToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
+    let addToCart = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
+     addToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
             let kanap = {
                 id:id, 
                 colors:("colors",document.getElementById("colors").value),
                 quantity:("quantity",document.getElementById("quantity").value)
+            }  
+            //si il n'y a pas de localstorage on bloque de suite
+            if (!localStorage) {
+                return false;
             }
-    
-   
+            //sinon voir si il y a un produit dans le localStorage et le recuperer
+            else localStorage = JSONparse(localStorage).getItem ("kanap") ;{
+
+            }; 
+            
 });
 });
