@@ -1,16 +1,18 @@
-let addToCart = document.getElementById("#addToCart");
+/*let limitedWidthBlock = document.querySelector(".limitedWidthBlock");
+let addButton = document.getElementById("#addToCart");
 let input = document.getElementById("order");
 
-class kanap{
+class reservation{
 constructor() {
-    this.addToCart = addToCart;
+    this.addButton = addButton;
     this.input = order;
     this.kanap = kanap;
 
 }
 }
+*/
+sessionStorage.setItem('kanap', this.product);
 
-sessionStorage.setItem("kanap", this.kanap);
-kanap.innerHTML = this
-
-sessionStorage.getItem("kanap");
+if (sessionStorage.getItem('kanap') !==null) {
+    this.product = sessionStorage.getItem('kanap') ;
+}

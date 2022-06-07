@@ -39,21 +39,33 @@ fetch(str)
             let itemQuantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
  
    
-    let addToCart = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
-     addToCart.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le buttonToCart, on écoute l'evenement click*/
+    let addButton = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
+     addButton.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le addButton, on écoute l'evenement click*/
             let kanap = {
                 id:id, 
                 colors:("colors",document.getElementById("colors").value),
-                quantity:("quantity",document.getElementById("quantity").value)
-            }  
-            //si il n'y a pas de localstorage on bloque de suite
-            if (!localStorage) {
-                return false;
+                quantity:("quantity",document.getElementById("quantity").value),
+            };
+            // si des donnees existente dans la sessionStorage recuperer
+            let DonneesSessionStorage = JSON.parse(sessionStorage.getItem("product"));
+            // si il y a des donnees dans la sesssionStorage pousser le produit selectionne
+            if (DonneesSessionStorage){
+            //ajout du produit dans le tableau des donnees
+                DonneesSessionStorage.push(kanap);
+            //
+                sessionStorage.setItem("kanap", JSON.stringify(DonneesSessionStorage));
             }
-            //sinon voir si il y a un produit dans le localStorage et le recuperer
-            else localStorage = JSONparse(localStorage).getItem ("kanap") ;{
+            else{
+                DonneesSessionStorage =[];
+                DonneesSessionStorage.push(kanap);
+                sessionStorage.setItem("kanap", stringify(DonneesSessionStorage));
+            }
+            if (DonneesSessionStorage){
+                DonneesSessionStorage.forEach(product => {
+                    document.getElementById("product").innerHTML=product.idProduct;
 
-            }; 
-            
+                });
+            }
+           
 });
 });
