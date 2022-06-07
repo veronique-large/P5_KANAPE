@@ -58,7 +58,7 @@ fetch(str)
             else{
                 DonneesSessionStorage =[];
                 DonneesSessionStorage.push(kanap);
-                sessionStorage.setItem("kanap", stringify(DonneesSessionStorage));
+                sessionStorage.setItem("kanap", JSON.stringify(DonneesSessionStorage));
             }
             if (DonneesSessionStorage){
                 DonneesSessionStorage.forEach(product => {
