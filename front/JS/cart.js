@@ -2,7 +2,7 @@
 let DonneesSessionStorage = JSON.parse(sessionStorage.getItem("product"));
     if (DonneesSessionStorage){ //je cree une condition, si il y a des donnees dans le sessionStorage
         DonneesSessionStorage.for.of(product => { //je cree une boucle for qui permet de repeter un certain nbre de fois le code pou le produit
-            document.getElementById("product").innerHTML=product.idProduct;//je recupère le produit et son id à l'interieur de Html
+            document.getElementById("product").innerHTML=product.idProduct;//le produit recuperé dans HTML est egal au produit et son id
         })
     
 let product = {id:id, color:color, quantity:quantity}
