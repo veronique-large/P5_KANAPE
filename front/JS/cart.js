@@ -39,7 +39,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let p = document.createElement('p');
     p.classList.add("colors");
-    p.innerHTML = cart.colors;
+    p.innerHTML = product.colors;
     itemDesc.appendChild(p);
 
 
