@@ -62,7 +62,7 @@ fetch(str)
             }
             if (DonneesSessionStorage){
                 DonneesSessionStorage.forEach(product => {
-                    document.getElementById("product").innerHTML=product.idProduct;
+                    /*document.getElementById("product").innerHTML=product.idProduct;*/
 
                 });
             }
