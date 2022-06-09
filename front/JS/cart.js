@@ -36,17 +36,14 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     h2.innerHTML = cart.name;
     itemDesc.appendChild(h2);
 
-
+    //variable pour creer les couleurs et les quantites
     let p = document.createElement('p');
     p.classList.add("colors") + ("quantity");
     p.innerHTML = product.colors + product.quantity;
     itemDesc.appendChild(p);
 
 
-    /*let p = document.createElement('p');
-    p.classList.add("quantity");
-    p.innerHTML = cart.quantity;
-    itemDesc.appendChild(p);
+    
 
    /* let cartItemImg = document.querySelector('.cart_item_img'); 
         let img = document.createElement('img');
