@@ -1,11 +1,11 @@
 let url = new URLSearchParams(window.location.search);
 const id = url.get('id');
-const str = 'http://localhost:3000/api/products/'+id;
+const str = 'http://localhost:3000/api/products/' + id;
 
 fetch(str)
-    .then(function(reponse) {
-        if (reponse.ok) {
-            return reponse.json()
+    .then(function(res) {
+        if (res.ok) {
+            return res.json()
         }
     }) 
 .then(function(product) {
@@ -45,27 +45,24 @@ fetch(str)
                 id:id, 
                 colors:("colors",document.getElementById("colors").value),
                 quantity:("quantity",document.getElementById("quantity").value),
-            };
+            }
             // si des donnees existente dans la sessionStorage recuperer
-            let DonneesSessionStorage = JSON.parse(sessionStorage.getItem("product"));
+            let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
             // si il y a des donnees dans la sesssionStorage pousser le produit selectionne
-            if (DonneesSessionStorage){
+            if (DonneesLocalStorage){
             //ajout du produit dans le tableau des donnees
-                DonneesSessionStorage.push(kanap);
+                DonneesLocalStorage.push(kanap);
             //
-                sessionStorage.setItem("kanap", JSON.stringify(DonneesSessionStorage));
+                localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             }
             else{
-                DonneesSessionStorage =[];
-                DonneesSessionStorage.push(kanap);
-                sessionStorage.setItem("kanap", JSON.stringify(DonneesSessionStorage));
-            }
-            if (DonneesSessionStorage){
-                DonneesSessionStorage.forEach(product => {
-                    /*document.getElementById("product").innerHTML=product.idProduct;*/
-
-                });
+                DonneesLocalStorage =[];
+                DonneesLocalStorage.push(kanap);
+                localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             }
            
-});
-});
+                });
+            });
+        
+           
+
