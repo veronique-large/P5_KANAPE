@@ -37,11 +37,16 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     h2.innerHTML = cart.name;
     itemDesc.appendChild(h2);
 
-    //variable pour creer les couleurs et les quantites
-    let p = document.createElement('p');
-    p.classList.add("colors") + ("quantity");
-    p.innerHTML = product.colors + product.quantity;
-    itemContent.appendChild(p);
+    //variable pour creer les couleurs et les prix
+    let colors = document.createElement('p');
+    colors.classList.add("colors");
+    colors.innerHTML = kanap.colors;
+    itemDesc.appendChild(colors);
+
+    let price = document.createElement('p');
+    price.classList.add("price");
+    price.innerHTML = product.price;
+    itemDesc.appendChild(price);
 
     let itemSetting = document.createElement("div");
     itemSetting.classList.add("cart__item__content__settings");
@@ -49,6 +54,12 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let itemContentQuantity = document.createElement("div");
     itemContentQuantity.classList.add("cart__item__content__settings__quantity");
     itemSetting.appendChild(itemContentQuantity);
+
+    //variable pour creer la balise p de quantite
+    let quantity = document.createElement("p");
+    quantity.classList.add("quantity");
+    quantity.innerHTML = kanap.quantity;
+    itemContentQuantity.appendChild(quantity);
     
     let itemImg = document.createElement('div');
     itemImg.classList.add("cart__item__img");
