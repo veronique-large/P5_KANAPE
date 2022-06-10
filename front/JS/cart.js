@@ -1,4 +1,4 @@
-//si les donnees du produit existe dans la sessionStorage on recupere l item du produit
+//si les donnees du produit existe dans la sessionStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     for(let product of DonneesLocalStorage) { //je cree une boucle for of pour parcourir les donnees du produit           
@@ -18,10 +18,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         .then(function(cart) {
  
 
-    let cart_items = document.getElementById('cart__items');
+    let items = document.getElementById('cart__items');
     
     let article = document.createElement('article');
-    cart_items.appendChild(article);
+    article.classList.add("cart__item");
+    items.appendChild(article);
     
     let itemContent = document.createElement("div");
     itemContent.classList.add("cart__item__content");
@@ -40,17 +41,24 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let p = document.createElement('p');
     p.classList.add("colors") + ("quantity");
     p.innerHTML = product.colors + product.quantity;
-    itemDesc.appendChild(p);
+    itemContent.appendChild(p);
 
-
+    let itemSetting = document.createElement("div");
+    itemSetting.classList.add("cart__item__content__settings");
     
+    let itemContentQuantity = document.createElement("div");
+    itemContentQuantity.classList.add("cart__item__content__settings__quantity");
+    itemSetting.appendChild(itemContentQuantity);
+    
+    let itemImg = document.createElement('div');
+    itemImg.classList.add("cart__item__img");
+    items.appendChild(itemImg);
 
-   /* let cartItemImg = document.querySelector('.cart_item_img'); 
-        let img = document.createElement('img');
-        img.classList.add("productImage");
-        img.src = product.imageUrl;
-        img.alt = product.altTxt;
-        cartItemImg.appendChild(img);*/
+    let img = document.createElement('img');
+    img.classList.add("productImage");
+    img.src = product.imageUrl;
+    img.alt = product.altTxt;
+    itemImg.appendChild(img);
            });   
     }
 }
