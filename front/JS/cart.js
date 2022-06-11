@@ -63,23 +63,25 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     quantity.innerHTML = kanap.quantity;
     itemContentQuantity.appendChild(quantity);
         
-    //creation du bouton input
-    let bouton = document.createElement('input');
-    bouton.classList.add("itemQuantity"); //Ajout d'une classe au bouton
-    bouton.innerHTML = kanap.quantity; //recupèration de la quantite de kanape à l'interieur de HTML
-    itemContentQuantity.appendChild(bouton);
-    bouton.setAttribute("type","number"); // definition des attributs du bouton, de type nombre
-    bouton.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
-    bouton.setAttribute("value","productQuantity"); // "" de valeur productQuantity
+    //creation de input
+    let input = document.createElement('input');
+    input.classList.add("itemQuantity"); //Ajout d'une classe au bouton
+    input.innerHTML = kanap.quantity; //recupèration de la quantite de kanape à l'interieur de HTML
+    itemContentQuantity.appendChild(input);
+    input.setAttribute("type","number"); // definition des attributs du bouton, de type nombre
+    input.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
+    input.setAttribute("value","productQuantity"); // "" de valeur productQuantity
   
     let itemImg = document.createElement('div');
     itemImg.classList.add("cart__item__img");
     items.appendChild(itemImg);
 
+    //creation de l'image du kanap selectionne dans le chariot
     let img = document.createElement('img');
-    img.classList.add("productImage");
-    img.innerHTML = cart.img;
-   /* alt.innerHTML = cart.alt;*/
+    img.classList.add("cartImage");
+    img.innerHTML = cart.image;
+    img.src = cart.imageUrl;
+    img.alt.innerHTML = cart.altTxt;
     itemImg.appendChild(img);
 
     let itemContentSetting = document.createElement('div');
@@ -87,9 +89,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let deleteItem = document.createElement('p');
     deleteItem.classList.add('deleteItem');
-    itemContentSetting.appendChild(deleteItem);
-
-    
+    deleteItem.innerHTML = cart.delete;
+    itemContentSetting.appendChild(deleteItem);       
            });   
     }
 }
