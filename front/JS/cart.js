@@ -22,7 +22,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     
     let article = document.createElement('article');
     article.classList.add("cart__item");
-    article.innerHTML = kanap;
     items.appendChild(article);
 
     
@@ -48,7 +47,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     //variable pour creer la balise p de price, et innerHTML pour aller recupèrer le prix du produit
     let price = document.createElement('p');
     price.classList.add("price");
-    price.innerHTML = product.price;
+    price.innerHTML = cart.price;
     itemDesc.appendChild(price);
 
     let itemSetting = document.createElement("div");
@@ -79,8 +78,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let img = document.createElement('img');
     img.classList.add("productImage");
-    img.src = product.imageUrl;
-    img.alt = product.altTxt;
+    img.innerHTML = cart.img;
+   /* alt.innerHTML = cart.alt;*/
     itemImg.appendChild(img);
 
     let itemContentSetting = document.createElement('div');
