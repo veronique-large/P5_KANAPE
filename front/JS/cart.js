@@ -1,12 +1,12 @@
-//si les donnees du produit existe dans le localStorage on recupere les donnees du produit
+//si les donnees du produit existe dans la sessionStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
-if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le localStorage
+if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     for(let product of DonneesLocalStorage) { //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
             id:product.id,
             colors:product.colors,
             quantity:product.quantity,
-        } //je cree la variable kanap pour appeler l'ID les couleurs et quantites du produit
+        } //la variable kanap est composee d'un ID d'une couleur et d'une quantite
 
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
@@ -48,7 +48,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le l
     let price = document.createElement('p');
     price.classList.add("price");
     price.innerHTML = cart.price + "<em>€</em>"; // modification du contenu avec concatenation
-
     itemDesc.appendChild(price);
 
     let itemSetting = document.createElement("div");
@@ -58,18 +57,18 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le l
     itemContentQuantity.classList.add("cart__item__content__settings__quantity");
     itemSetting.appendChild(itemContentQuantity);
 
-     //variable pour creer la balise p de quantite, puis aller recupèrer la quantite de kanape
+    //variable pour creer la balise p de quantite, puis aller recupèrer la quantite de kanape
     let qte = document.createElement("p");
     qte.classList.add("quantity");
     qte.innerHTML = kanap.quantity;
     itemContentQuantity.appendChild(qte);
-     
-     //creation de input
+        
+    //creation de input
     let input = document.createElement('input');
     input.classList.add("itemQuantity"); //Ajout d'une classe a l input
     input.setAttribute("type","number"); // definition des attributs de input, de type nombre
     input.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
-    input.setAttribute("value","productQuantity"); // "" de valeur productQuantity
+    input.setAttribute("value","kanapQuantity"); // "" de valeur kanapQuantity
     input.innerHTML = kanap.quantity; //recupèration de la quantite de kanape à l'interieur de HTML
     itemContentQuantity.appendChild(input);
 
@@ -88,11 +87,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le l
     let itemSettingsDelete = document.createElement('div');
     itemSettingsDelete.classList.add("cart__item__content__settings__delete");
 
-    let deleteItem = document.createElement('p');
-    deleteItem.classList.add('deleteItem');
-    deleteItem.innerHTML = cart.delete;
-    itemSettingsDelete.appendChild(deleteItem); 
-                 
+    let deleteI = document.createElement('p');
+    deleteI.classList.add('deleteItem');
+    deleteI.innerHTML = cart.delete;
+    itemSettingsDelete.appendChild(deleteI);
+           
            });   
     }
 }
