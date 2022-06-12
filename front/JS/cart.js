@@ -47,7 +47,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le l
     //variable pour creer la balise p de price, et innerHTML pour aller recupèrer le prix du produit
     let price = document.createElement('p');
     price.classList.add("price");
-    price.innerHTML = cart.price;
+    price.innerHTML = cart.price + "<strong>€</strong>"; // modification du contenu avec concatenation
+
     itemDesc.appendChild(price);
 
     let itemSetting = document.createElement("div");
