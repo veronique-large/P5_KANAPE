@@ -6,7 +6,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le l
             id:product.id,
             colors:product.colors,
             quantity:product.quantity,
-        } //je cree la variable kanap pour recuperer l' ID les couleurs et quantites du produit
+        } //je cree la variable kanap pour appeler l'ID les couleurs et quantites du produit
 
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
