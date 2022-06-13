@@ -69,7 +69,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     input.setAttribute("type","number"); // definition des attributs de input, de type nombre
     input.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
     input.setAttribute("value","kanapQuantity"); // "" de valeur kanapQuantity
-    input.innerHTML = kanap.quantity; //recupèration de la quantite de kanape à l'interieur de HTML
+    input.innerHTML = kanap.quantity; 
     itemContentQuantity.appendChild(input);
 
     let itemImg = document.createElement('div');
@@ -78,10 +78,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     //creation de l'image du kanap selectionne dans le chariot
     let img = document.createElement('img');
-    img.classList.add("cartImage");
-    img.innerHTML = cart.image;
+    img.classList.add("productImage");
     img.src = cart.imageUrl;
-    img.alt.innerHTML = cart.altTxt;
+    img.alt = cart.altTxt;
     itemImg.appendChild(img);
 
     let itemSettingsDelete = document.createElement('div');
