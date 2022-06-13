@@ -78,7 +78,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     //creation de l'image du kanap selectionne dans le chariot
     let img = document.createElement('img');
-    img.classList.add("productImage");
     img.src = cart.imageUrl;
     img.alt = cart.altTxt;
     itemImg.appendChild(img);
