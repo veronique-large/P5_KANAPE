@@ -46,9 +46,9 @@ fetch(str)
                 colors:("colors",document.getElementById("colors").value),
                 quantity:("quantity",document.getElementById("quantity").value),
             }
-            // si des donnees existente dans la sessionStorage recuperer
+            // si des donnees existente dans le localStorage recuperer
             let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
-            // si il y a des donnees dans la sesssionStorage pousser le produit selectionne
+            // si il y a des donnees dans le localStorage pousser le produit selectionne
             if (DonneesLocalStorage){
             //ajout du produit dans le tableau des donnees
                 DonneesLocalStorage.push(kanap);
@@ -60,9 +60,32 @@ fetch(str)
                 DonneesLocalStorage.push(kanap);
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             }
-           
+
+            let donneesColors ={
+                kanap01:['colors,"Blue", "White", "Black" '],
+                kanap02:['colors, "Black/Yellow", "Black/Red" '],
+                kanap03:['colors,"Green", "Red", "Orange" '],
+                kanap04:['colors,"Pink", "White"'],
+                kanap05:['colors,"Grey", "Purple", "Blue"'],
+                kanap06:['colors,"Grey", "Navy"'],
+                kanap07:['colors,"Red", "Silver"'],
+                kanap08:['colors,Pink", "Brown", "Yellow", "White']  
+            }
+            if (DonneesLocalStorage){ //si donnees dans le LS 
+                let kanap03 = colors.orange; // le kanpa03 est de couleur orange
+            }
+           /* let resultat = donneesColors.find( kanap03 => colors ='Orange');*/
+
+            let numberskanap = [1,2,3,4,5,6,7,8]; 
+            let newNumberskanap = numberskanap.filter((kanap) => {
+                 numberskanap > 5 ;
+                 colors: "Brown";
+            })
+            console.log(newNumberskanap);
+        });
+    
                 });
-            });
+            
         
            
 

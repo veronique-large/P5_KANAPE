@@ -68,7 +68,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     input.classList.add("itemQuantity"); //Ajout d'une classe a l input
     input.setAttribute("type","number"); // definition des attributs de input, de type nombre
     input.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
-    input.setAttribute("value","kanapQuantity"); // "" de valeur kanapQuantity
+    input.setAttribute("value","productQuantity"); // "" de valeur kanapQuantity
     input.innerHTML = kanap.quantity; 
     itemContentQuantity.appendChild(input);
 
@@ -89,7 +89,38 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     deleteI.classList.add('deleteItem');
     deleteI.innerHTML = cart.delete;
     itemSettingsDelete.appendChild(deleteI);
-           
-           });   
+
+    //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
+    input.addEventListener('change', function(event) {
+        event.preventDefault();
+
+    let colors = document.querySelector('productColors'); 
+    colors.innerHTML = product.colors;
+
+    let quantity = document.querySelector('productQuantity');
+    quantity.innerHTML = productQuantity;   
+        })
+    let product = {
+        id: 6,
+        colors: "Navy",
     }
-}
+
+
+   /* let cartprice = document.querySelector(".cart_price");
+
+    let total = document.querySelector('p');
+    
+    let articles = document.getElementById('totalQuantity');
+    articles.innerHTML = totalQuantity;
+
+    let prices = document.getElementById('totalPrice');
+    prices.innerHTML = totalPrice;
+    })*/
+
+
+       })
+        
+    }
+
+           
+        };
