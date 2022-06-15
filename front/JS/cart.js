@@ -100,10 +100,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let quantity = document.querySelector('productQuantity');
     quantity.innerHTML = productQuantity;   
         })
-    let product = {
-        id: 6,
-        colors: "Navy",
-    }
+    
+   /* let filtre = LocalStorage.filter(function(id) {
+        if (id = 1){
+            return true
+
+        }
+    });
 
 
    /* let cartprice = document.querySelector(".cart_price");

@@ -60,32 +60,43 @@ fetch(str)
                 DonneesLocalStorage.push(kanap);
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             }
-
-            let donneesColors ={
-                kanap01:['colors,"Blue", "White", "Black" '],
-                kanap02:['colors, "Black/Yellow", "Black/Red" '],
-                kanap03:['colors,"Green", "Red", "Orange" '],
-                kanap04:['colors,"Pink", "White"'],
-                kanap05:['colors,"Grey", "Purple", "Blue"'],
-                kanap06:['colors,"Grey", "Navy"'],
-                kanap07:['colors,"Red", "Silver"'],
-                kanap08:['colors,Pink", "Brown", "Yellow", "White']  
+            let kanapNames = ["KanapSinopé","Kanap Cyllène","Kanap Calycé","Kanap Autonoé",
+            "Kanap Eurydomé","Kanap Hélicé","Kanap Thyoné","Kanap orthosie" ];
+            let kanapFiltres = kanapNames.filter(function(kanap) { //je cree une variable kanapeFiltres, j utilise filtre avec kanapNames[], j'utilise la fonction sur kanap
+            if (KanapSinopé = blue){
+                return true
             }
-            if (DonneesLocalStorage){ //si donnees dans le LS 
-                let kanap03 = colors.orange; // le kanpa03 est de couleur orange
-            }
-           /* let resultat = donneesColors.find( kanap03 => colors ='Orange');*/
-
-            let numberskanap = [1,2,3,4,5,6,7,8]; 
-            let newNumberskanap = numberskanap.filter((kanap) => {
-                 numberskanap > 5 ;
-                 colors: "Brown";
-            })
-            console.log(newNumberskanap);
-        });
-    
-                });
-            
+                if (quantity<1){
+                 return true       
+                }
         
+            });
            
+/*
+            let donneeskanap ={
+                kanap01:[id107fb5b75607497b96722bda5b504926],
+                kanap02:[id415b7cacb65d43b2b5c1ff70f3393ad1],
+                kanap03:[id055743915a544fde83cfdfc904935ee7],
+                kanap04:[ida557292fe5814ea2b15c6ef4bd73ed83],
+                kanap05:[id8906dfda133f4c20a9d0e34f18adcf06],
+                kanap06:[id77711f0e466b4ddf953f677d30b0efc9],
+                kanap07:[id034707184e8e4eefb46400b5a3774b5f],
+                kanap08:[ida6ec5b49bd164d7fbe10f37b6363f9fb]  
+            }
+           
+            let colorsk ={
+                kanap01:["Blue", "White", "Black"],
+                kanap02:["Black/Yellow", "Black/Red"],
+                kanap03:["Green", "Red", "Orange"],
+                kanap04:["Pink", "White"],
+                kanap05:["Grey", "Purple", "Blue"],
+                kanap06:["Grey", "Navy"],
+                kanap07:["Red", "Silver"],
+                kanap08:["Pink", "Brown", "Yellow", "White"]  
+            }
+           */
 
+     });
+
+
+                });
