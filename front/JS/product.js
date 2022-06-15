@@ -50,17 +50,17 @@ fetch(str)
             let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
             // si il y a des donnees dans le localStorage pousser le produit selectionne
 
-           const recherche = () =>{
+           const recherche = () =>{ //je cree une constante de recherche 
             //ajout du produit dans le tableau des donnees
                 DonneesLocalStorage.push(kanap);
             
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-            }
+            } // Si il y a des donnees dans le local storage
             if (DonneesLocalStorage){
-                let recherche2 = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
-                if (recherche2){
-                    let newQuantity = recherche2.quantity + kanap.quantity;
-                    recherche2.quantity = newQuantity;
+                let rechercher = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
+                if (rechercher){
+                    let newQuantity = rechercher.quantity + kanap.quantity;
+                    rechercher.quantity = newQuantity++;
                     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
                 }
                 else{
@@ -69,7 +69,7 @@ fetch(str)
             }
             else{
                 DonneesLocalStorage =[];
-                test();
+                recherche();
             }
             
      });
