@@ -94,22 +94,26 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     input.addEventListener('change', function(event) {
         event.preventDefault();
 
-    let colors = document.querySelector('productColors'); 
-    colors.innerHTML = product.colors;
+   const recherche = () =>{
 
-    let quantity = document.querySelector('productQuantity');
-    quantity.innerHTML = productQuantity;   
-        })
-    
-   /* let filtre = LocalStorage.filter(function(id) {
-        if (id = 1){
-            return true
+    DonneesLocalStorage.push(kanap);
 
+    localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+
+    if (DonneesLocalStorage){
+        let recherche2 = DonneesLocalStorage.find(p => p.id != kanap.id && p.colors != kanap.colors);//variable de filtre des p pour les DLS, si le paramètres ne sont pas egaux aux produits 
+        if (recherche2){
+            let newQuantity = recherche2.quantity + kanap.quantity;
+            recherche2.quantity = newQuantity;
+            newQuantity == null; // nouvelle quantite est null
+            localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         }
-    });
-
-
-   /* let cartprice = document.querySelector(".cart_price");
+        
+    }
+   }
+    })
+    /*
+    let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
     
