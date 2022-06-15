@@ -49,54 +49,29 @@ fetch(str)
             // si des donnees existente dans le localStorage recuperer
             let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
             // si il y a des donnees dans le localStorage pousser le produit selectionne
-            if (DonneesLocalStorage){
+
+           const recherche = () =>{
             //ajout du produit dans le tableau des donnees
                 DonneesLocalStorage.push(kanap);
-            //
+            
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+            }
+            if (DonneesLocalStorage){
+                let recherche2 = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
+                if (recherche2){
+                    let newQuantity = recherche2.quantity + kanap.quantity;
+                    recherche2.quantity = newQuantity;
+                    localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+                }
+                else{
+                    recherche();
+                }
             }
             else{
                 DonneesLocalStorage =[];
-                DonneesLocalStorage.push(kanap);
-                localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+                test();
             }
-            let kanapNames = ["KanapSinopé","Kanap Cyllène","Kanap Calycé","Kanap Autonoé",
-            "Kanap Eurydomé","Kanap Hélicé","Kanap Thyoné","Kanap orthosie" ];
-            let kanapFiltres = kanapNames.filter(function(kanap) { //je cree une variable kanapeFiltres, j utilise filtre avec kanapNames[], j'utilise la fonction sur kanap
-            if (KanapSinopé = blue){
-                return true
-            }
-                if (quantity<1){
-                 return true       
-                }
-        
-            });
-           
-/*
-            let donneeskanap ={
-                kanap01:[id107fb5b75607497b96722bda5b504926],
-                kanap02:[id415b7cacb65d43b2b5c1ff70f3393ad1],
-                kanap03:[id055743915a544fde83cfdfc904935ee7],
-                kanap04:[ida557292fe5814ea2b15c6ef4bd73ed83],
-                kanap05:[id8906dfda133f4c20a9d0e34f18adcf06],
-                kanap06:[id77711f0e466b4ddf953f677d30b0efc9],
-                kanap07:[id034707184e8e4eefb46400b5a3774b5f],
-                kanap08:[ida6ec5b49bd164d7fbe10f37b6363f9fb]  
-            }
-           
-            let colorsk ={
-                kanap01:["Blue", "White", "Black"],
-                kanap02:["Black/Yellow", "Black/Red"],
-                kanap03:["Green", "Red", "Orange"],
-                kanap04:["Pink", "White"],
-                kanap05:["Grey", "Purple", "Blue"],
-                kanap06:["Grey", "Navy"],
-                kanap07:["Red", "Silver"],
-                kanap08:["Pink", "Brown", "Yellow", "White"]  
-            }
-           */
-
+            
      });
-
 
                 });
