@@ -105,8 +105,17 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         if (recherche2){
             let newQuantity = recherche2.quantity + kanap.quantity;
             recherche2.quantity = newQuantity;
-            newQuantity == null; // nouvelle quantite est null
+            newQuantity = null; // nouvelle quantite est null
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+        }
+        else if (DonneesLocalStorage) { // sinon si dans les DLS les p du produit sont + ou - egal au produit
+           let rechercheProduit3 = DonneesLocalStorage.find(p => p.id = +- kanap.id && p.colors +- kanap.colors);
+           let newQuantity = rechercheProduit3 -+ kanap.quantity;
+           rechercheProduit3.quantity = newQuantity;
+           if (newQuantity = -1) { // Si la nouvelle quantite est egal à -1
+            remove.newQuantity(kanap); // Supprime la nouvelle quantite de kanap
+           }
+           
         }
         
     }
