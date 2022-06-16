@@ -52,25 +52,27 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let itemSetting = document.createElement("div");
     itemSetting.classList.add("cart__item__content__settings");
-    
+    itemContent.appendChild(itemSetting);
+
     let itemContentQuantity = document.createElement("div");
     itemContentQuantity.classList.add("cart__item__content__settings__quantity");
     itemSetting.appendChild(itemContentQuantity);
 
     //variable pour creer la balise p de quantite, puis aller recupèrer la quantite de kanape
-    let qte = document.createElement("p");
-    qte.classList.add("quantity");
-    qte.innerHTML = kanap.quantity;
-    itemContentQuantity.appendChild(qte);
+    let quantite = document.createElement("p");
+    quantite.classList.add("quantity");
+    quantite.innerHTML = ("Qte :");
+    itemContentQuantity.appendChild(quantite);
         
     //creation de input
-    let input = document.createElement('input');
-    input.classList.add("itemQuantity"); //Ajout d'une classe a l input
-    input.setAttribute("type","number"); // definition des attributs de input, de type nombre
-    input.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
-    input.setAttribute("value","productQuantity"); // "" de valeur kanapQuantity
-    input.innerHTML = kanap.quantity; 
-    itemContentQuantity.appendChild(input);
+    let quantity = document.createElement('input');
+    quantity.classList.add("itemQuantity"); //Ajout d'une classe a l input
+    quantity.setAttribute("type","number"); // definition des attributs de input, de type nombre
+    quantity.setAttribute("name","itemQuantity"); // "" de nom itemQuantity
+    quantity.setAttribute("value",kanap.quantity); //value correspondant à la quantite de kanape
+    quantity.setAttribute("min","1");// "" de valeur min kanapQuantity
+    quantity.setAttribute("max","100");// "" de valeur max kanapQuantity
+    itemContentQuantity.appendChild(quantity);
 
     let itemImg = document.createElement('div');
     itemImg.classList.add("cart__item__img");
@@ -84,14 +86,15 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let itemSettingsDelete = document.createElement('div');
     itemSettingsDelete.classList.add("cart__item__content__settings__delete");
+    itemContent.appendChild(itemSettingsDelete);
 
     let deleteI = document.createElement('p');
     deleteI.classList.add('deleteItem');
-    deleteI.innerHTML = cart.delete;
+    deleteI.innerHTML = ("supprimer");
     itemSettingsDelete.appendChild(deleteI);
 
     //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
-    input.addEventListener('change', function(event) {
+    quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
    const recherche = () =>{
