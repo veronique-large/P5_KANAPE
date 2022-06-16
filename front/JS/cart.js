@@ -114,8 +114,10 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
            rechercheProduit3.quantity = newQuantity;
            if (newQuantity = -1) { // Si la nouvelle quantite est egal à -1
             remove.newQuantity(kanap); // Supprime la nouvelle quantite de kanap
-           }
-           
+           }  
+        }
+        else {
+            recherche ();  
         }
         
     }
