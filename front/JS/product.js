@@ -57,13 +57,14 @@ fetch(str)
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             } // Si il y a des donnees dans le local storage
             if (DonneesLocalStorage){
-                let rechercher = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
-                if (rechercher){
-                    let newQuantity = rechercher.quantity + kanap.quantity;
-                    rechercher.quantity = newQuantity++;
+                let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
+                if (rechercheProduit){
+                    let newQuantity = rechercheProduit.quantity + kanap.quantity;
+                    kanap.quantity = 1;
+                    rechercheProduit.quantity = newQuantity++;
                     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
                 }
-                else{
+                else{ 
                     recherche();
                 }
             }
