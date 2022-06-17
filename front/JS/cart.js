@@ -102,46 +102,37 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     DonneesLocalStorage.push(kanap);
 
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-
+   }
     if (DonneesLocalStorage){
-        let recherche2 = DonneesLocalStorage.find(p => p.id != kanap.id && p.colors != kanap.colors);//variable de filtre des p pour les DLS, si le paramètres ne sont pas egaux aux produits 
-        if (recherche2){
-            let newQuantity = recherche2.quantity + kanap.quantity;
-            recherche2.quantity = newQuantity;
-            newQuantity = null; // nouvelle quantite est null
+        let rechercheProduit = DonneesLocalStorage.find(p => p.id !== kanap.id && p.colors !== kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont differents de la recherche
+        if (rechercheProduit){
+            rechercheProduit.quantity = newQuantity;
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         }
-        else if (DonneesLocalStorage) { // sinon si dans les DLS les p du produit sont + ou - egal au produit
-           let rechercheProduit3 = DonneesLocalStorage.find(p => p.id = +- kanap.id && p.colors +- kanap.colors);
-           let newQuantity = rechercheProduit3 -+ kanap.quantity;
-           rechercheProduit3.quantity = newQuantity;
-           if (newQuantity = -1) { // Si la nouvelle quantite est egal à -1
-            remove.newQuantity(kanap); // Supprime la nouvelle quantite de kanap
-           }  
-        }
-        else {
-            recherche ();  
-        }
-        
-    }
-   }
-    })
-    /*
+        else{
+            recherche();
+        } 
+           
+    }; 
+}); 
+
+
     let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
-    
+ 
     let articles = document.getElementById('totalQuantity');
-    articles.innerHTML = totalQuantity;
+    articles.innerHTML = total.quantity;
 
     let prices = document.getElementById('totalPrice');
-    prices.innerHTML = totalPrice;
-    })*/
+    prices.innerHTML = total.price;
 
+    let cartquest = document.querySelector('cart__order__form__question');
 
-       })
-        
-    }
+    let firsterror = document.getElementById('firstNameErrorMsg');
+    firsterror.innerHTML = firstName;
+    });
+}
+}
 
-           
-        };
+    
