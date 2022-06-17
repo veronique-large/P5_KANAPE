@@ -107,7 +107,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     if (DonneesLocalStorage){
         let rechercheProduit = DonneesLocalStorage.find(p => p.id !== kanap.id && p.colors !== kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont differents de la recherche
         if (rechercheProduit){
-            rechercheProduit.quantity = +- newQuantity;
+            let newQuantity = rechercheProduit.quantity +- kanap.quantity;
+            rechercheProduit.quantity = newQuantity;
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         }
         else{
