@@ -1,7 +1,7 @@
 //si les donnees du produit existe dans la sessionStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
-    for(let product of DonneesLocalStorage) { //je cree une boucle for of pour parcourir les donnees du produit           
+    for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
             id:product.id,
             colors:product.colors,
@@ -98,43 +98,39 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
-   const recherche = () =>{
+    const recherche = () =>{
 
     DonneesLocalStorage.push(kanap);
 
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-   }
+    }
     if (DonneesLocalStorage){
-        let rechercheProduit = DonneesLocalStorage.find(p => p.id !== kanap.id && p.colors !== kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont differents de la recherche
+        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont differents de la recherche
         if (rechercheProduit){
-            let newQuantity = rechercheProduit.quantity +- kanap.quantity;
-            rechercheProduit.quantity = newQuantity;
+            let newQuantity = rechercheProduit.quantity != kanap.quantity;
+            rechercheProduit.quantity + newQuantity;
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-        }
+        } 
         else{
             recherche();
-        } 
-           
-    }; 
-}); 
-
+        }
+    }
 
     let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
  
     let articles = document.getElementById('totalQuantity');
-    articles.innerHTML = total.quantity;
+    articles.innerHTML = kanap.quantity;
 
     let prices = document.getElementById('totalPrice');
-    prices.innerHTML = total.price;
+    prices.innerHTML = cart.price;
 
     let cartquest = document.querySelector('cart__order__form__question');
 
     let firsterror = document.getElementById('firstNameErrorMsg');
     firsterror.innerHTML = firstName;
     });
+        });
+    }
 }
-}
-
-    
