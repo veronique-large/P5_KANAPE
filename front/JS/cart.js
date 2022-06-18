@@ -91,7 +91,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let deleteI = document.createElement('p');
     deleteI.classList.add('deleteItem');
-    deleteI.innerHTML = ("supprimer");
+    deleteI.innerHTML = (cart.delete,"supprimer");
     itemSettingsDelete.appendChild(deleteI);
 
     //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
@@ -105,20 +105,22 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
     }
     if (DonneesLocalStorage){
-        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont differents de la recherche
+        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont strictement egaux 
         if (rechercheProduit){
-            let newQuantity = rechercheProduit.quantity != kanap.quantity;
-            rechercheProduit.quantity + newQuantity;
+            let newQuantity =! rechercheProduit.quantity +- kanap.quantity;
+            rechercheProduit.quantity = newQuantity;
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         } 
-        else{
-            recherche();
+        else {
+            recherche(); 
+
         }
     }
 
     let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
+    total.innerHTML = kanap.quantity , cart.price;
  
     let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;
@@ -128,8 +130,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let cartquest = document.querySelector('cart__order__form__question');
 
-    let firsterror = document.getElementById('firstNameErrorMsg');
-    firsterror.innerHTML = firstName;
+    let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+    firsterror.textContent = firstNameErrorMsg;
     });
         });
     }
