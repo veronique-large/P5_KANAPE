@@ -98,8 +98,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
-    let produit = document.querySelector("product.id");
-    let produitcouleur = document.querySelector("product.colors");
+    let produit = kanap.id;
+    let produitcouleur = kanap.colors;
 
     DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors);
 
@@ -111,7 +111,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
             localStorage.setItem("kanap.quantity", JSON.stringify(DonneesLocalStorage));
         }
         else {
-            recherche(); 
 
         DonneesLocalStorage.push(kanap);
   
