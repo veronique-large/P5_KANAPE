@@ -98,26 +98,23 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
-        produit:kanap.id;
-        produitCouleur:kanap.colors;
+        let produit = kanap.id;
+        let produitCouleur = kanap.colors;
 
-    DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors);
+    let recherche = DonneesLocalStorage.find(p => p.id === produit && p.colors === produitCouleur);
 
-    if (DonneesLocalStorage){
-        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont strictement egaux 
-        if (rechercheProduit){
-            let newQuantity = Number(quantity.value);
-            rechercheProduit.quantity = newQuantity;
-            localStorage.setItem("kanap.quantity", JSON.stringify(DonneesLocalStorage));
+    if (recherche){
+            recherche.quantity = Number(quantity.value); 
+            localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         }
-        else {
-
+    else {
         DonneesLocalStorage.push(kanap);
-  
         localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
 
         }
-    }
+        document.location.reload();
+    });
+
 
     
 
@@ -140,7 +137,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
         }
     }
-*/
+
     let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
@@ -156,7 +153,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
     firsterror.textContent = firstNameErrorMsg;
-    });
+    });*/
         });
     }
 }
