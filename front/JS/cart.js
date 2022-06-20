@@ -114,6 +114,25 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         }
         document.location.reload();
     });
+    
+    let cartDelete = document.querySelector('.deleteItem');
+    cartDelete.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        let produit = kanap.id; 
+        let produitCouleur = kanap.colors;
+
+    let produits = DonneesLocalStorage.filter(p => p.id !== produit, produitCouleur);
+    produits != 1 || 100;
+    event.target.closest(".cart_item"). remove();
+    
+    localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+
+    document.location.reload();
+
+    });
+ 
+
 
 
     
