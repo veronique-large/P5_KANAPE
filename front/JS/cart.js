@@ -108,12 +108,16 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         if (rechercheProduit){
             let newQuantity = rechercheProduit.quantity +- kanap.quantity;
             rechercheProduit.quantity = newQuantity.value;
-            localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+            localStorage.setItem("kanap.quantity", JSON.stringify(DonneesLocalStorage));
         }
         else {
             recherche(); 
 
-        } 
+        DonneesLocalStorage.push(kanap);
+  
+        localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+
+        }
     }
 
     
