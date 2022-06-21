@@ -125,7 +125,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let produits = DonneesLocalStorage.filter(p => p.id !== produit, produitCouleur);
     produits != 1 || 100; //produits inégal à 1 ou à 100
     event.target.closest(".cart__item").remove();//lors de l'evenement sur l'article supprime
-    
+   
+   /* produits.localStorage.remove(".cart__item"); // test cela supprime une partie du visuel html, sauf l img, d'autre part le reload ne s'active pas (erreur)*/
+
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
 
     document.location.reload();
