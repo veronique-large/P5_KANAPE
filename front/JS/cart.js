@@ -89,9 +89,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     itemSettingsDelete.classList.add("cart__item__content__settings__delete");
     itemContent.appendChild(itemSettingsDelete);
 
-    let deleteI = document.createElement('p');
+    let deleteI = document.createElement('bouton');
     deleteI.classList.add('deleteItem');
-    deleteI.innerHTML = (cart.delete,"supprimer");
+    deleteI.innerHTML = (cart.delete, "supprimer");
     itemSettingsDelete.appendChild(deleteI);
 
     //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
@@ -114,26 +114,24 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         }
         document.location.reload();
     });
-    // j'ecoute l evenement click sur le btnDelete
-    let btnDelete = document.querySelector('.deleteItem');
-    btnDelete.addEventListener('click', function(event) {
+
+    // j'ecoute l evenement click sur le btnDelete 
+    let bouton = document.querySelector('.deleteItem');
+    bouton.addEventListener('click', function(event) {
         event.preventDefault();
     // creation des deux variables pour aller chercher id et colors de kanap
         let produit = kanap.id; 
         let produitCouleur = kanap.colors;
     // la variable produits est egale au filtre dans le LS, le filtre declanche un parametre et une fonction, si p.id est inegal à produit(kanap) et produitCouleur
-    let produits = DonneesLocalStorage.filter(p => p.id !== produit, produitCouleur);
-    produits != 1 || 100; //produits inégal à 1 ou à 100
+    let produits = DonneesLocalStorage.filter(p => p.id !== produit || produitCouleur);
     event.target.closest(".cart__item").remove();//lors de l'evenement sur l'article supprime
    
-   /* produits.localStorage.remove(".cart__item"); // test cela supprime une partie du visuel html, sauf l img, d'autre part le reload ne s'active pas (erreur)*/
-
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
 
     document.location.reload();
 
     });
-  
+    
    /*     
    
     let cartprice = document.querySelector(".cart_price");
