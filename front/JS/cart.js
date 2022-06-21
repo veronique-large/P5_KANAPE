@@ -124,7 +124,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     // la variable produits est egale au filtre dans le LS, le filtre declanche un parametre et une fonction, si p.id est inegal à produit(kanap) et produitCouleur
     let produits = DonneesLocalStorage.filter(p => p.id !== produit, produitCouleur);
     produits != 1 || 100; //produits inégal à 1 ou à 100
-    event.target.closest(".cart_item").remove();//lors de l'evenement sur l'article supprime
+    event.target.closest(".cart__item").remove();//lors de l'evenement sur l'article supprime
     
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
 
