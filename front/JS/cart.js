@@ -115,10 +115,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         document.location.reload();
     });
 
-    let boutonSupprime = document.querySelectorAll('.deleteItem');
-    for (let i = 0; i < boutonSupprime.length; i ++){
-    // j'ecoute l evenement click sur le btnDelete  
-    boutonSupprime[i].addEventListener('click', function(event) {
+    let produits = document.querySelector('.deleteItem');
+    // j'ecoute l evenement click sur le p  
+    produits.addEventListener('click', function(event) {
         event.preventDefault();
     // creation des deux variables pour aller chercher id et colors de kanap
         let produit = kanap.id; 
@@ -135,7 +134,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     
     });
     
-}
    /*
     let cartprice = document.querySelector(".cart_price");
 
