@@ -89,7 +89,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     itemSettingsDelete.classList.add("cart__item__content__settings__delete");
     itemContent.appendChild(itemSettingsDelete);
 
-    let deleteI = document.createElement('bouton');
+    let deleteI = document.createElement('P');
     deleteI.classList.add('deleteItem');
     deleteI.innerHTML = (cart.delete, "supprimer");
     itemSettingsDelete.appendChild(deleteI);
@@ -115,25 +115,28 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         document.location.reload();
     });
 
-    // j'ecoute l evenement click sur le btnDelete 
-    let bouton = document.querySelector('.deleteItem');
-    bouton.addEventListener('click', function(event) {
+    let boutonSupprime = document.querySelectorAll('.deleteItem');
+    for (let i = 0; i < boutonSupprime.length; i ++){
+    // j'ecoute l evenement click sur le btnDelete  
+    boutonSupprime[i].addEventListener('click', function(event) {
         event.preventDefault();
     // creation des deux variables pour aller chercher id et colors de kanap
         let produit = kanap.id; 
         let produitCouleur = kanap.colors;
     // la variable produits est egale au filtre dans le LS, le filtre declanche un parametre et une fonction, si p.id est inegal à produit(kanap) et produitCouleur
     let produits = DonneesLocalStorage.filter(p => p.id !== produit || produitCouleur);
-    event.target.closest(".cart__item").remove();//lors de l'evenement sur l'article supprime
-   
+    event.target.closest(".cart__item").remove('kanap');//lors de l'evenement sur l'article supprime
+    
+    /*localstorage.removeItem('kanap');*/
+
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
 
-    document.location.reload();
-
+   /* document.location.reload();*/
+    
     });
     
-   /*     
-   
+}
+   /*
     let cartprice = document.querySelector(".cart_price");
 
     let total = document.querySelector('p');
@@ -145,7 +148,12 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;
 
-    let cartquest = document.querySelector('cart__order__form__question');
+
+  /*  function totalQuantity(kanap1, kanap2, kanap3, kanap4, kanap5, kanap6, kanap7, kanap8){
+        return kanap1 + kanap2 + kanap3 + kanap4 + kanap5 + kanap6 + kanap7 + kanap8;
+    }*/
+  
+   /* let cartquest = document.querySelector('cart__order__form__question');
 
     let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
     firsterror.textContent = firstNameErrorMsg;
@@ -153,4 +161,3 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     });
         }; 
     };
-
