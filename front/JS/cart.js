@@ -115,21 +115,19 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         document.location.reload();
     });
 
-    let produits = document.querySelector('.deleteItem'); // j'ecoute l evenement click sur le p 
-     
-    produits.addEventListener('click', function(event) {
+    let supprimer = document.querySelector('.deleteItem'); 
+    supprimer.addEventListener('click', function(event) {
        event.preventDefault(); 
 
-        let produit = kanap.id; 
-        let produitCouleur = kanap.colors;
-    // la variable produits est egale au filtre dans le LS, le filtre declanche un parametre et une fonction, si p.id est inegal à produit(kanap) et produitCouleur
-    let produits = DonneesLocalStorage.filter(p => p.id !== produit || produitCouleur);
-    event.target.closest(".cart__item").remove('kanap + id');//lors de l'evenement sur l'article supprime
-    
-    /*localstorage.removeItem('kanap');*/
-
+        let canape = kanap.id; 
+        let canapeCouleur = kanap.colors;
+    // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
+    let recherche = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
+    event.target.closest(".cart__item").remove('kanap');
+    //lors de l'evenement sur l'article supprime 
+    recherche.quantity = Number(quantity.value);
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-
+   
    /* document.location.reload();*/
     
     });
