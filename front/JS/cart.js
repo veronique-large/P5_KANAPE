@@ -122,21 +122,20 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
-    let recherche = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
-    event.target.closest(".cart__item").remove('kanap');
-    //lors de l'evenement sur l'article supprime 
-    recherche.quantity = Number(quantity.value);
+    let filtre = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
+    event.target.closest(".cart__item").remove('kanap');     //lors de l'evenement sur l'article supprime 
+
+   /* filtre.quantity = Number(quantity.value);*/
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-   
-   /* document.location.reload();*/
+       /* document.location.reload();*/
     
     });
     
    /*
-    let cartprice = document.querySelector(".cart_price");
+    let cartprice = document.querySelector(".cart__price");
 
     let total = document.querySelector('p');
-    total.innerHTML = kanap.quantity , cart.price;
+    total.innerHTML = kanap.quantity, cart.price;
  
     let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;
@@ -145,10 +144,15 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     prices.innerHTML = cart.price;
 
 
-  /*  function totalQuantity(kanap1, kanap2, kanap3, kanap4, kanap5, kanap6, kanap7, kanap8){
+   /* function totalQuantity(kanap1, kanap2, kanap3, kanap4, kanap5, kanap6, kanap7, kanap8){
         return kanap1 + kanap2 + kanap3 + kanap4 + kanap5 + kanap6 + kanap7 + kanap8;
-    }*/
-  
+    } */  
+   /* total.addEventListener('change', function(event) {
+            event.preventDefault(); 
+
+        });*/
+    
+    
    /* let cartquest = document.querySelector('cart__order__form__question');
 
     let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
