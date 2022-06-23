@@ -89,63 +89,53 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     itemSettingsDelete.classList.add("cart__item__content__settings__delete");
     itemContent.appendChild(itemSettingsDelete);
 
-    let deleteI = document.createElement('p');
+    let deleteI = document.createElement('P');
     deleteI.classList.add('deleteItem');
-    deleteI.innerHTML = (cart.delete,"supprimer");
+    deleteI.innerHTML = (cart.delete, "supprimer");
     itemSettingsDelete.appendChild(deleteI);
 
     //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
     quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
-    let produit = document.querySelector("product.id");
-    let produitcouleur = document.querySelector("product.colors");
+        let produit = kanap.id;
+        let produitCouleur = kanap.colors;
 
-    DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors);
+    let recherche = DonneesLocalStorage.find(p => p.id === produit && p.colors === produitCouleur);
 
-    if (DonneesLocalStorage){
-        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont strictement egaux 
-        if (rechercheProduit){
-            let newQuantity = rechercheProduit.quantity +- kanap.quantity;
-            rechercheProduit.quantity = newQuantity.value;
+    if (recherche){
+            recherche.quantity = Number(quantity.value); 
             localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
         }
-        else {
-            recherche(); 
-
+    else {
         DonneesLocalStorage.push(kanap);
-  
         localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-        
+
         }
-    }
+        document.location.reload();
+    });
 
-    
+    let supprimer = document.querySelector('.deleteItem'); 
+    supprimer.addEventListener('click', function(event) {
+       event.preventDefault(); 
 
- /*       
-    const recherche = () =>{
+        let canape = kanap.id; 
+        let canapeCouleur = kanap.colors;
+    // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
+    let filtre = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
+    event.target.closest(".cart__item").remove('kanap');     //lors de l'evenement sur l'article supprime 
 
-    DonneesLocalStorage.push(kanap);
-
+    filtre.quantity = Number(quantity.value);
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-    }
-    if (DonneesLocalStorage){
-        let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors); //recherche de produit , filtre du localStorage, si les produits sont strictement egaux 
-        if (rechercheProduit){
-            let newQuantity =! rechercheProduit.quantity +- kanap.quantity;
-            rechercheProduit.quantity = newQuantity;
-            localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
-        } 
-        else {
-            recherche(); 
-
-        }
-    }
-*/
-    let cartprice = document.querySelector(".cart_price");
+       /* document.location.reload();*/
+    
+    });
+    
+   /*
+    let cartprice = document.querySelector(".cart__price");
 
     let total = document.querySelector('p');
-    total.innerHTML = kanap.quantity , cart.price;
+    total.innerHTML = kanap.quantity, cart.price;
  
     let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;
@@ -153,11 +143,21 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;
 
-    let cartquest = document.querySelector('cart__order__form__question');
+
+   /* function totalQuantity(kanap1, kanap2, kanap3, kanap4, kanap5, kanap6, kanap7, kanap8){
+        return kanap1 + kanap2 + kanap3 + kanap4 + kanap5 + kanap6 + kanap7 + kanap8;
+    } */  
+   /* total.addEventListener('change', function(event) {
+            event.preventDefault(); 
+
+        });*/
+    
+    
+   /* let cartquest = document.querySelector('cart__order__form__question');
 
     let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
     firsterror.textContent = firstNameErrorMsg;
+    */
     });
-        });
-    }
-}
+        }; 
+    };
