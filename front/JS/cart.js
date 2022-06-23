@@ -125,13 +125,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let filtre = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
     event.target.closest(".cart__item").remove('kanap');     //lors de l'evenement sur l'article supprime 
 
-   /* filtre.quantity = Number(quantity.value);*/
+    filtre.quantity = Number(quantity.value);
     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
        /* document.location.reload();*/
     
     });
     
-   /*
+   
     let cartprice = document.querySelector(".cart__price");
 
     let total = document.querySelector('p');
