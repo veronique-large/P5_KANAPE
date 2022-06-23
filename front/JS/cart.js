@@ -131,7 +131,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     
     });
     
-   
+   /*
     let cartprice = document.querySelector(".cart__price");
 
     let total = document.querySelector('p');
