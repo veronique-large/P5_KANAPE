@@ -1,4 +1,4 @@
-//si les donnees du produit existe dans la sessionStorage on recupere les donnees du produit
+//si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
@@ -77,7 +77,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     let itemImg = document.createElement('div');
     itemImg.classList.add("cart__item__img");
-    items.appendChild(itemImg);
+    article.appendChild(itemImg);
 
     //creation de l'image du kanap selectionne dans le chariot
     let img = document.createElement('img');
@@ -115,23 +115,20 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         document.location.reload();
     });
 
-    let supprimer = document.querySelector('.deleteItem'); 
-    supprimer.addEventListener('click', function(event) {
+    deleteI.addEventListener('click', function(event) {
        event.preventDefault(); 
 
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
-    let filtre = DonneesLocalStorage.filter(p => p.id !== canape ||  p.colors !== canapeCouleur);
-    event.target.closest(".cart__item").remove('kanap');     //lors de l'evenement sur l'article supprime 
+    let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
+    event.target.closest(".cart__item").remove();     //lors de l'evenement sur l'article supprime 
 
-    filtre.quantity = Number(quantity.value);
-    localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
+    localStorage.setItem("kanap", JSON.stringify(filtre));
        /* document.location.reload();*/
     
     });
     
-   /*
     let cartprice = document.querySelector(".cart__price");
 
     let total = document.querySelector('p');
@@ -143,16 +140,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;
 
-
-   /* function totalQuantity(kanap1, kanap2, kanap3, kanap4, kanap5, kanap6, kanap7, kanap8){
-        return kanap1 + kanap2 + kanap3 + kanap4 + kanap5 + kanap6 + kanap7 + kanap8;
-    } */  
-   /* total.addEventListener('change', function(event) {
-            event.preventDefault(); 
-
-        });*/
-    
-    
    /* let cartquest = document.querySelector('cart__order__form__question');
 
     let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
@@ -161,3 +148,19 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     });
         }; 
     };
+    // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
+    // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
+    //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
+    // on cree la variable totalQuantity qui se rapporte à l'id pour mettre dans
+    // son innerHTML la variable Y, fermer la function et la lancer
+    function totalCommande() {
+    let total = DonneesLocalStorage;
+
+    for(total of DonneesLocalStorage){
+        DonneesLocalStorage += product.quantity;
+    }
+    let totalQuantity = document.getElementById('totalQuantity');
+    totalQuantity.innerHTML = product.quantity;
+    }
+    
+
