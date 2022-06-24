@@ -43,8 +43,8 @@ fetch(str)
      addButton.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le addButton, on écoute l'evenement click*/
             let kanap = {
                 id:id, 
-                colors:("colors",document.getElementById("colors").value),
-                quantity:("quantity",document.getElementById("quantity").value),
+                colors:document.getElementById("colors").value,
+                quantity:parseInt(document.getElementById("quantity").value),
             }
             // si des donnees existente dans le localStorage recuperer
             let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
@@ -57,11 +57,10 @@ fetch(str)
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
             } // Si il y a des donnees dans le local storage
             if (DonneesLocalStorage){
-                let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors );
+                let rechercheProduit = DonneesLocalStorage.find(p => p.id === kanap.id && p.colors === kanap.colors);
                 if (rechercheProduit){
                     let newQuantity = rechercheProduit.quantity + kanap.quantity;
-                    kanap.quantity = 1;
-                    rechercheProduit.quantity = newQuantity++;
+                    rechercheProduit.quantity = newQuantity;
                     localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
                 }
                 else{ 
