@@ -129,13 +129,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     
     });
     
-    let cartprice = document.querySelector(".cart__price");
+   /* let cartprice = document.querySelector(".cart__price");*/
 
     let total = document.querySelector('p');
     total.innerHTML = kanap.quantity, cart.price;
  
-    let articles = document.getElementById('totalQuantity');
-    articles.innerHTML = kanap.quantity;
+   /* let articles = document.getElementById('totalQuantity');
+    articles.innerHTML = kanap.quantity;*/
 
     let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;
@@ -147,7 +147,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     */
     });
         }; 
-    };
+    
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
@@ -155,11 +155,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     // son innerHTML la variable Y, fermer la function et la lancer
     function totalCommande() {
     let total = DonneesLocalStorage;
+    let kanaps = 0;
 
     for(let product of total){
-    product.quantity = ("min", "1" || "max", "100");
-    let kanaps += Number(product.quantity);
-    };
+    kanaps += Number(product.quantity);
+    }
  
     let totalQuantity = document.getElementById('totalQuantity');
     totalQuantity.innerHTML = kanaps;
@@ -167,6 +167,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let totalPrice = document.getElementById('totalPrice');
     totalPrice.innerHTML = kanaps * cart.price;
  */   
-    };
-    
+    }
 
+    totalCommande();
+
+}
