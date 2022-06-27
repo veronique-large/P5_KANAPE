@@ -156,14 +156,16 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     function totalCommande() {
     let total = DonneesLocalStorage;
 
-    for(let total of DonneesLocalStorage){
-    let kanaps = product.quantity += 1;
+    for(let product of total){
+    let kanaps += Number(quantity.value);
     };
+ 
     let totalQuantity = document.getElementById('totalQuantity');
     totalQuantity.innerHTML = kanaps * kanap.quantity;
-
+/*
     let totalPrice = document.getElementById('totalPrice');
     totalPrice.innerHTML = kanaps * cart.price;
+ */   
     };
     
 
