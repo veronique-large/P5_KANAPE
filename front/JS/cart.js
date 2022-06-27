@@ -157,7 +157,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let total = DonneesLocalStorage;
 
     for(let product of total){
-    let kanaps += Number(quantity.value);
+    product.quantity = ("min", "1" || "max", "100");
+    let kanaps += Number(product.quantity);
     };
  
     let totalQuantity = document.getElementById('totalQuantity');
