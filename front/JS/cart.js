@@ -162,7 +162,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     };
  
     let totalQuantity = document.getElementById('totalQuantity');
-    totalQuantity.innerHTML = kanaps * kanap.quantity;
+    totalQuantity.innerHTML = kanaps;
 /*
     let totalPrice = document.getElementById('totalPrice');
     totalPrice.innerHTML = kanaps * cart.price;
