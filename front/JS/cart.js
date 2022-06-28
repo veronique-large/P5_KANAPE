@@ -1,6 +1,6 @@
 //si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
-let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 let pricesKanap = 0;
+let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
@@ -121,15 +121,17 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
-        pricesKanap += Number(quantity.value * price);
+        pricesKanap += Number(quantity).value * price;
+
 
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
     event.target.closest(".cart__item").remove();     //lors de l'evenement sur l'article supprime 
-    
 
     localStorage.setItem("kanap", JSON.stringify(filtre));
     document.location.reload();
+
+
     
     });
     
@@ -141,14 +143,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    /* let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;*/
 
-   /* let prices = document.getElementById('totalPrice');
-    prices.innerHTML = cart.price;
+    /*let prices = document.getElementById('totalPrice');
+    prices.innerHTML = cart.price;*/
 
-   /* let cartquest = document.querySelector('cart__order__form__question');
-
-    let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
-    firsterror.textContent = firstNameErrorMsg;
-    */
     });
         };
      
@@ -175,5 +172,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
 }
-
+/* let cartquest = document.querySelector('cart__order__form__question');
+    */
+/*let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+    firsterror.textContent = firstNameErrorMsg;
+*/
 
