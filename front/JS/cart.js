@@ -121,10 +121,12 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
+        pricesKanap += (recheche.quantity * price);
+
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
     event.target.closest(".cart__item").remove();     //lors de l'evenement sur l'article supprime 
-    pricesKanap += (recheche.quantity * price);
+    
 
     localStorage.setItem("kanap", JSON.stringify(filtre));
     document.location.reload();
@@ -166,8 +168,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     let totalQuantity = document.getElementById('totalQuantity');
     totalQuantity.innerHTML = kanaps;
 
-   
-  
     let totalPrice = document.getElementById('totalPrice');
     totalPrice.innerHTML = pricesKanap;
    
