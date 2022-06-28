@@ -121,8 +121,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
-        pricesKanap += Number(quantity).value * price;
-
+        pricesKanap += Number(quantity.value * price);
+        total = pricesKanap * Number(price).value;
 
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
@@ -143,7 +143,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    /* let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;*/
 
-    /*let prices = document.getElementById('totalPrice');
+   /* let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;*/
 
     });
@@ -166,8 +166,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalQuantity.innerHTML = kanaps;
 
     let totalPrice = document.getElementById('totalPrice');
-    totalPrice.innerHTML = pricesKanap;
-   
+    totalPrice.innerHTML = total;
+    
     }
 
     totalCommande();
