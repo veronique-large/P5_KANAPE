@@ -1,5 +1,6 @@
 //si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
+let pricesKanap = 0;
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
@@ -123,21 +124,22 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
     event.target.closest(".cart__item").remove();     //lors de l'evenement sur l'article supprime 
+    pricesKanap += (kanap.quantity.value * prices);
 
     localStorage.setItem("kanap", JSON.stringify(filtre));
-       /* document.location.reload();*/
+    document.location.reload();
     
     });
     
    /* let cartprice = document.querySelector(".cart__price");*/
 
-    let total = document.querySelector('p');
+   /* let total = document.querySelector('p');
     total.innerHTML = kanap.quantity, cart.price;
  
    /* let articles = document.getElementById('totalQuantity');
     articles.innerHTML = kanap.quantity;*/
 
-    let prices = document.getElementById('totalPrice');
+   /* let prices = document.getElementById('totalPrice');
     prices.innerHTML = cart.price;
 
    /* let cartquest = document.querySelector('cart__order__form__question');
@@ -146,8 +148,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     firsterror.textContent = firstNameErrorMsg;
     */
     });
-        }; 
-    
+        };
+     
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
@@ -163,12 +165,15 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
  
     let totalQuantity = document.getElementById('totalQuantity');
     totalQuantity.innerHTML = kanaps;
-/*
+
+   
+  
     let totalPrice = document.getElementById('totalPrice');
-    totalPrice.innerHTML = kanaps * cart.price;
- */   
+    totalPrice.innerHTML = pricesKanap;
+   
     }
 
     totalCommande();
-
 }
+
+
