@@ -131,21 +131,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     localStorage.setItem("kanap", JSON.stringify(filtre));
     document.location.reload();
 
-
-    
     });
     
-   /* let cartprice = document.querySelector(".cart__price");*/
-
-   /* let total = document.querySelector('p');
-    total.innerHTML = kanap.quantity, cart.price;
- 
-   /* let articles = document.getElementById('totalQuantity');
-    articles.innerHTML = kanap.quantity;*/
-
-   /* let prices = document.getElementById('totalPrice');
-    prices.innerHTML = cart.price;*/
-
     });
         };
      
@@ -172,9 +159,19 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
 }
-/* let cartquest = document.querySelector('cart__order__form__question');
-    */
-/*let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+/*let cartquest = document.querySelector('cart__order__form__question');
+    
+let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
     firsterror.textContent = firstNameErrorMsg;
 */
+
+
+    
+
+
+
+
+
+    
+    
 
