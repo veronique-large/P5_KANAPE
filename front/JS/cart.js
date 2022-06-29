@@ -122,7 +122,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
         pricesKanap += Number(quantity.value * price);
-        total = pricesKanap * Number(price).value;
+        resultat = pricesKanap * Number(price).value;
 
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
@@ -159,11 +159,21 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
 }
-/*let cartquest = document.querySelector('cart__order__form__question');
-    
+/*----bloc notes
+let cartquest = document.querySelector('cart__order__form__question');
+ 
+let formulaire = document.getElementById('firstName');
+formulaire.setAttribute("type", "text");
+formulaire.setAttribute("name","firstName");
+/*formulaire.setAttribute("value",); */
+/*
 let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
     firsterror.textContent = firstNameErrorMsg;
-*/
+  /*  formulaire.innerHTML = /^[a-z] {26,} $/;*/
+
+    
+
+
 
 
     
