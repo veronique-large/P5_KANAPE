@@ -1,7 +1,7 @@
 //si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
-let pricesKanap = 0;
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
+    let pricesKanap = 0;
     for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
             id:product.id,
@@ -51,6 +51,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     price.classList.add("price");
     price.innerHTML = cart.price + "<em>€</em>"; // modification du contenu avec concatenation
     itemDesc.appendChild(price);
+    let cartPrice = cart.price;
 
     let itemSetting = document.createElement("div");
     itemSetting.classList.add("cart__item__content__settings");
@@ -60,7 +61,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     itemContentQuantity.classList.add("cart__item__content__settings__quantity");
     itemSetting.appendChild(itemContentQuantity);
 
-    //variable pour creer la balise p de quantite, puis aller recupèrer la quantite de kanape
+    //variable pour creer la balise p de quantite, texte Qte
     let quantite = document.createElement("p");
     quantite.classList.add("quantity");
     quantite.innerHTML = ("Qte :");
@@ -121,8 +122,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
-        pricesKanap += Number(quantity.value * price);
-        let resultPrice = pricesKanap * Number(price).value;
 
     // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
@@ -132,10 +131,14 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     document.location.reload();
 
     });
-    
+
+    pricesKanap += quantity.value * cartPrice;
+    let totalPrice = document.getElementById('totalPrice');
+    totalPrice.innerHTML = pricesKanap;
+
     });
-        };
-     
+        }
+    }
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
@@ -151,16 +154,37 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
  
     let totalQuantity = document.getElementById('totalQuantity');
     totalQuantity.innerHTML = kanaps;
-
-    let totalPrice = document.getElementById('totalPrice');
-    totalPrice.innerHTML = total;
-    
     }
 
     totalCommande();
-}
+    
+   let commander = document.getElementById("order");
+   commander.addEventListener('click', function(event) {
+            event.preventDefault();
+    
+    let storage = [1,2,3,4,5,6,7,8];
+    for(let product of DonneesLocalStorage){           
+        storage.push(product.id);
+    }
+    let numeroCommande = document.querySelectorAll("input, text"); {
+        contact =  {
+    firstName : document.getElementById('firstName'),
+    lastName: document.getElementById('lastName'),
+    address: document.getElementById('address'),
+    city: document.getElementById('city'),
+    email: document.getElementById('email'), 
+    
+        }
+     let validation = storage;
+   
+    }
+        });
 
-//let cartquest = document.querySelector('cart__order__form__question');
 
-//let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
-   // firsterror.textContent = firstNameErrorMsg;
+
+/*
+let cartquest = document.querySelector('cart__order__form__question');
+
+let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+    firsterror.textContent = firstNameErrorMsg;
+*/
