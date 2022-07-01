@@ -167,31 +167,22 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         storage.push(product.id);
     }
     let formulaire = document.querySelectorAll("input, text"); {
-        contact =  {
+       contact =  {
     firstName : document.getElementById('firstName'),
     lastName: document.getElementById('lastName'),
     address: document.getElementById('address'),
     city: document.getElementById('city'),
     email: document.getElementById('email'), 
     
-        }
+       }
      let validation = storage;
    
     }
         });
-    let url = new URLSearchParams(window.location.search);
-    const id = url.get('id');
-    fetch('http://localhost:3000/api/products/') + order.id;
-        (function(res) {
-        if (res.ok) {
-            return res.json()
-        }
-    }) 
-
+   
 
 /*
-let cartquest = document.querySelector('cart__order__form__question');
+let cartquest = document.querySelector('cart__order__form__question');*/
 
-let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
-    firsterror.textContent = firstNameErrorMsg;
-*/
+/*let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+    firsterror.textContent = firstNameErrorMsg.value;*/
