@@ -166,7 +166,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     for(let product of DonneesLocalStorage){           
         storage.push(product.id);
     }
-    let numeroCommande = document.querySelectorAll("input, text"); {
+    let formulaire = document.querySelectorAll("input, text"); {
         contact =  {
     firstName : document.getElementById('firstName'),
     lastName: document.getElementById('lastName'),
