@@ -168,7 +168,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     }
 
     let formulaire = {
-    contact : {
+    contact :
+     {
     firstName : document.getElementById('firstName').value,
     lastName : document.getElementById('lastName').value,
     address : document.getElementById('address').value,
