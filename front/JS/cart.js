@@ -167,26 +167,20 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         Storage.push(product.id);
     }
 
-    let formulaire = document.querySelectorAll(".cart__order__form__question", "input"); {
-    contact = {
-    firstName : document.getElementById('firstName'),
-    lastName: document.getElementById('lastName'),
-    address: document.getElementById('address'),
-    city: document.getElementById('city'),
-    email: document.getElementById('email'), 
-    
-       }
-    formulaire.innerHTML = contact;
-    let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
-    firsterror.textContent = firstNameErrorMsg.value;
-  
-       console.log(formulaire);
-     let validation = Storage;
-   
-    }
-        });
-   
+    let formulaire = {
+    contact : {
+    firstName : document.getElementById('firstName').value,
+    lastName : document.getElementById('lastName').value,
+    address : document.getElementById('address').value,
+    city : document.getElementById('city').value,
+    email : document.getElementById('email').value,
 
-/*
-let cartquest = document.querySelector('cart__order__form__question');*/
+       }
+    }
+
+    let validation = Storage;
+    console.log(formulaire)
+
+});
+   
 
