@@ -162,12 +162,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    commander.addEventListener('click', function(event) {
             event.preventDefault();
     
-    let storage = [1,2,3,4,5,6,7,8];
+    let Storage = [];
     for(let product of DonneesLocalStorage){           
-        storage.push(product.id);
+        Storage.push(product.id);
     }
+
     let formulaire = document.querySelectorAll("input, text"); {
-       contact =  {
+    contact =  {
     firstName : document.getElementById('firstName'),
     lastName: document.getElementById('lastName'),
     address: document.getElementById('address'),
@@ -175,7 +176,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     email: document.getElementById('email'), 
     
        }
-     let validation = storage;
+     let validation = Storage;
    
     }
         });
