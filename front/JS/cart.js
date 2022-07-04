@@ -167,8 +167,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         Storage.push(product.id);
     }
 
-    let formulaire = document.querySelectorAll("input, text"); {
-    contact =  {
+    let formulaire = document.querySelectorAll(".cart__order__form__question", "input"); {
+    contact = {
     firstName : document.getElementById('firstName'),
     lastName: document.getElementById('lastName'),
     address: document.getElementById('address'),
@@ -176,6 +176,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     email: document.getElementById('email'), 
     
        }
+    formulaire.innerHTML = contact;
+    let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
+    firsterror.textContent = firstNameErrorMsg.value;
+  
+       console.log(formulaire);
      let validation = Storage;
    
     }
@@ -185,5 +190,3 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 /*
 let cartquest = document.querySelector('cart__order__form__question');*/
 
-/*let firsterror = document.getElementById('firstNameErrorMsg').textContent = "ceci est un message d'erreur";
-    firsterror.textContent = firstNameErrorMsg.value;*/
