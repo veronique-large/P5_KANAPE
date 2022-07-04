@@ -162,9 +162,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    commander.addEventListener('click', function(event) {
             event.preventDefault();
     
-    let Storage = [];
+    let storage = [];
     for(let product of DonneesLocalStorage){           
-        Storage.push(product.id);
+        storage.push(product.id);
     }
 
     let formulaire = {
@@ -174,13 +174,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     address : document.getElementById('address').value,
     city : document.getElementById('city').value,
     email : document.getElementById('email').value,
-
+    validation : storage
        }
+   
     }
-
-    let validation = Storage;
     console.log(formulaire)
-
 });
    
 
