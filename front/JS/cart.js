@@ -178,7 +178,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
      },
     validation : storage,
        }
-   
+    console.log(formulaire);
    
     fetch("http://localhost:3000/api/products/order", {
     method: 'POST',
@@ -188,7 +188,15 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     },
     body: JSON.stringify(formulaire)
 })
-    
+.then(function(res) {
+    if (res.ok) {
+        return res.json()
+    }
+}) 
+.then(function(data) {
+  'http://localhost:3000/api/products/order/data';
+  
+})
 });
-   
+ 
 
