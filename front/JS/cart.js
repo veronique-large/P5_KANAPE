@@ -187,7 +187,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     'Content-Type': 'application/json'   
     },
     body: JSON.stringify(jsonFormulaire)
-    });*/
+    })*/
 });
    
 
