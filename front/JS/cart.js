@@ -175,11 +175,19 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     address : document.getElementById('address').value,
     city : document.getElementById('city').value,
     email : document.getElementById('email').value,
-    validation : storage
+     },
+    validation : storage,
        }
    
-    }
-    console.log(formulaire)
+   
+   /* fetch("http://url-searchParams/api/orderProducts", {
+    method: 'POST',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'   
+    },
+    body: JSON.stringify(jsonFormulaire)
+    });*/
 });
    
 
