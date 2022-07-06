@@ -180,7 +180,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
        }
    
    
-    fetch("http://url-searchParams/api/order/", {
+    fetch("http://localhost:3000/api/products/order", {
     method: 'POST',
     headers: {
     'Accept': 'application/json',
