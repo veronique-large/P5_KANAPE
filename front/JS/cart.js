@@ -176,7 +176,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     city : document.getElementById('city').value,
     email : document.getElementById('email').value,
      },
-    validation : storage,
+    products : storage,
        }
     console.log(formulaire);
    
