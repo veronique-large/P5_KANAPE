@@ -193,8 +193,9 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         return res.json()
     }
 }) 
-.then(function(data) {
-a.href = "./confirmation.html?data="+order._id; 
+.then(function(order) {
+let a = document.createElement('a');
+a.href = "./confirmation.html?order="+formulaire._order;
 })
 });
  
