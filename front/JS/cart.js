@@ -180,23 +180,23 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
        }
     console.log(formulaire);
    
-    fetch("http://localhost:3000/api/products/order", {
-    method: 'POST',
-    headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'   
-    },
-    body: JSON.stringify(formulaire)
-})
-.then(function(res) {
-    if (res.ok) {
-        return res.json()
-    }
-}) 
-.then(function(order) {
-let a = document.createElement('a');
-a.href = "./confirmation.html?order="+formulaire._order;
+    const options =
+    {
+      method: "POST",
+      headers:
+      {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formulaire),
+    };
+
+    fetch("http://localhost:3000/api/products/order", options)
+
+      .then((res) => res.json())
+      .then((data) => 
+      {
+
+document.location.href = "confirmation.html?orderId=" + data.orderId;
 })
 });
- 
-
