@@ -158,20 +158,20 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
    let prenom = document.getElementById("firstName");
-   let verifier = new RegExp("A-Z");
+   let nouveau = new RegExp("A-Z");
    const firsterror = document.getElementById("firstNameErrorMsg");
    const firstNameErrorMsg = ("ceci est un message d'erreur");
    const form = document.querySelector('.cart_order_form');
    form+prenom.addEventListener('change', function(event) {
         event.preventDefault();
 
-    if(verifier){
+    if(nouveau){
         (prenom.value) == false; 
     } 
     else{
         firsterror.innerHTML = firstNameErrorMsg;
     }
-    console.log(verifier)
+    console.log(nouveau)
    });
 
    let commander = document.getElementById("order");
