@@ -162,7 +162,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    const firsterror = document.getElementById("firstNameErrorMsg").textContent;
    const p = "ceci est un message d'erreur";
    const form = document.querySelector('.cart_order_form');
-   form,message.addEventListener('change', function(event) {
+   message.addEventListener('change', function(event) {
         event.preventDefault();
 
     if(regex){
