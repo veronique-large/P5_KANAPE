@@ -159,19 +159,20 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalCommande();
    let message = document.getElementById("firstName");
    let regex = new RegExp("les");
-   const firsterror = document.getElementById("firstNameErrorMsg");
-   const firstNameErrorMsg = ("ceci est un message d'erreur");
+   const firsterror = document.getElementById("firstNameErrorMsg").textContent;
+   const p = "ceci est un message d'erreur";
    const form = document.querySelector('.cart_order_form');
-   form+message.addEventListener('change', function(event) {
+   form,message.addEventListener('change', function(event) {
         event.preventDefault();
 
     if(regex){
-        alert(message.value) == false; 
+        alert(message.value) == false;
+
     } 
     else{
-        firsterror.innerHTML = "ceci est un message d'erreur";
+        p.innerHTML = "ceci est un message d'erreur";
     }
-    console.log(firsterror)
+    console.log(p);
    });
 
    let commander = document.getElementById("order");
