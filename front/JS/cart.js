@@ -157,13 +157,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     }
 
     totalCommande();
-   let firstName = document.getElementById("firstName");
-   let regex = new RegExp (/^([A-Z]{3,30})$/);
-   const firsterror = document.getElementById("firstNameErrorMsg");
-   const messagePrenom = "le format du prenom est incorrect";
-   const form = document.querySelector('.cart__order__form');
-   form.firstName.addEventListener('change', function() {
-   
+   let firstName = document.getElementById("firstName");// - Créer la variable V de l’input lié à sa class ou son ID (voir le HTML)
+   let regex = new RegExp (/^([A-Z]{3,30})$/);//- Créer la variable W de la regex dont la valeur est new RegExp() => dans les parenthèses on place le motif (les marqueurs - suite de lettres de chiffres et d’expressions régulières)
+   const firsterror = document.getElementById("firstNameErrorMsg");//- Créer la constante X lié à l’ID de l’erreur ( ex : firstNameErrorMsg)
+   const messagePrenom = "le format du prenom est incorrect";//- Créer la constante Y du texte de l‘erreur => exemple : Le format du prénom est incorrect
+   const form = document.querySelector('.cart__order__form');//- Créer la constante Z sur la class : .cart__order__form
+   form.firstName.addEventListener('change', function() {//- définir un évènement change sur le Z associé à la variable de V pour lancer une fonction (regardez bien comment vous avez traiter en amont vos addEventListener
+   //- Une condition sur W.
     if(regex){                          //- Une condition sur W.
     let formPrenom = firstName + form; // *Une condition sur W.
     formPrenom == regex;               // *Une condition sur W.
@@ -175,7 +175,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
         messagePrenom.innerHTML = "le format du prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
 
     }
-    /*console.log(p);*/
+
    });
 
    let commander = document.getElementById("order");
