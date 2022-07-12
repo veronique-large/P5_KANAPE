@@ -158,14 +158,14 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
    let firstName = document.getElementById("firstName");
-   let regex = new RegExp("[A-Z]{3-30,}");
+   let regex = new RegExp(/^([A-Z]{3,30})$/);
    const firsterror = document.getElementById("firstNameErrorMsg");
    const messagePrenom = "le format du prenom est incorrect";
-   const form = document.querySelector('.cart_order_form');
+   const form = document.querySelector('.cart__order__form');
    form.firstName.addEventListener('change', function() {
 
     if(regex){
-        alert(message.value) == false;  
+        alert(firstName.value) == false;  
     } 
     
     else{
