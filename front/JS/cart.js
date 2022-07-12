@@ -158,18 +158,21 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
     totalCommande();
    let firstName = document.getElementById("firstName");
-   let regex = new RegExp(/^([A-Z]{3,30})$/);
+   let regex = new RegExp (/^([A-Z]{3,30})$/);
    const firsterror = document.getElementById("firstNameErrorMsg");
    const messagePrenom = "le format du prenom est incorrect";
    const form = document.querySelector('.cart__order__form');
    form.firstName.addEventListener('change', function() {
-
-    if(regex){
-        alert(firstName.value) == false;  
+   
+    if(regex){                          //- Une condition sur W.
+    let formPrenom = firstName + form; // *Une condition sur W.
+    formPrenom == regex;               // *Une condition sur W.
+    regex !== firstName;               // *Une condition sur W.
+                (firstName.value) == false; // test(la valeur de V) égal égal faux) => ici test n’a pas d’importance c’est pour donner un nom à la variable associée au paramètre dans les parenthèse.
     } 
     
-    else{
-        messagePrenom.innerHTML = "le format du prenom est incorrect";
+    else {
+        messagePrenom.innerHTML = "le format du prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
 
     }
     /*console.log(p);*/
