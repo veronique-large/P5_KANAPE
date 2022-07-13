@@ -158,8 +158,8 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalCommande();
 
    let firstName = document.getElementById("firstName");// - Créer la variable V de l’input lié à sa class ou son ID (voir le HTML)
-   let regexPrenom = new RegExp (/^([a-zA-Z-0-8]{3,30})$/);//- Créer la variable W de la regex dont la valeur est new RegExp() => dans les parenthèses on place le motif (les marqueurs - suite de lettres de chiffres et d’expressions régulières)
-                                                       // suite de lettres minuscules et majuscules et de chiffre, au moins 3 à 30 caracteres
+   let regexPrenom = new RegExp ('^[a-zA-Z0-9]{3,30}$', 'g');//- Créer la variable W de la regex dont la valeur est new RegExp() => dans les parenthèses on place le motif (les marqueurs - suite de lettres de chiffres et d’expressions régulières)
+                                                       // suite de lettres minuscules et majuscules et de chiffres, au moins 3 à 30 caracteres, et marqueur
    const firsterror = document.getElementById("firstNameErrorMsg");//- Créer la constante X lié à l’ID de l’erreur ( ex : firstNameErrorMsg)
    const messagePrenom = "le format du Prenom est incorrect";//- Créer la constante Y du texte de l‘erreur => exemple : Le format du prénom est incorrect
    const form = document.querySelector('.cart__order__form');//- Créer la constante Z sur la class : .cart__order__form
@@ -170,11 +170,11 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     else {
         firsterror.innerHTMLText = "le format du Prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
     }
-    /*console.log(regexPrenom.test(firstName.value));*/
+   /* console.log(regexPrenom.test(firstName.value));*/
    });
 
    let lastName = document.getElementById("lastName");
-   let regexNom = new RegExp (/^([A-Z-0-8]{3,30})$/);
+   let regexNom = new RegExp ('^([A-Z-0-8]{3,30})$', 'g');
    const lasterror = document.getElementById("lastNameErrorMsg");
    const messageNom = "le format Nom est incorrect";
    form.lastName.addEventListener('change', function() {
@@ -186,15 +186,16 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    /* console.log(regexNom.test(lastName.value));*/
    });
    let city = document.getElementById("city");
-   let regexCity = new RegExp (/^([a-zA-Z]{3,30})/);
+   let regexCity = new RegExp ('^[a-zA-Z-]{3,30}','g');
    const cityError = document.getElementById("cityErrorMsg");
    const messageCity = "le format ville est incorrect";
    form.city.addEventListener('change', function() {
-    if(regexNom.test(city.value) == false){   
+    if(regexCity.test(city.value) == false){   
  }
  else{
     city.innerHTMLText = "le format ville est incorrect";
 }
+   /* console.log(regexCity.test(city.value));*/
 
    });
    let commander = document.getElementById("order");
