@@ -158,20 +158,45 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalCommande();
 
    let firstName = document.getElementById("firstName");// - Créer la variable V de l’input lié à sa class ou son ID (voir le HTML)
-   let regexPrenom = new RegExp (/^([A-Z]{3,30})$/);//- Créer la variable W de la regex dont la valeur est new RegExp() => dans les parenthèses on place le motif (les marqueurs - suite de lettres de chiffres et d’expressions régulières)
+   let regexPrenom = new RegExp (/^([a-zA-Z-0-8]{3,30})$/);//- Créer la variable W de la regex dont la valeur est new RegExp() => dans les parenthèses on place le motif (les marqueurs - suite de lettres de chiffres et d’expressions régulières)
+                                                       // suite de lettres minuscules et majuscules et de chiffre, au moins 3 à 30 caracteres
    const firsterror = document.getElementById("firstNameErrorMsg");//- Créer la constante X lié à l’ID de l’erreur ( ex : firstNameErrorMsg)
-   const messagePrenom = "le format du prenom est incorrect";//- Créer la constante Y du texte de l‘erreur => exemple : Le format du prénom est incorrect
+   const messagePrenom = "le format du Prenom est incorrect";//- Créer la constante Y du texte de l‘erreur => exemple : Le format du prénom est incorrect
    const form = document.querySelector('.cart__order__form');//- Créer la constante Z sur la class : .cart__order__form
    form.firstName.addEventListener('change', function() {//- définir un évènement change sur le Z associé à la variable de V pour lancer une fonction (regardez bien comment vous avez traiter en amont vos addEventListener
 
     if(regexPrenom.test(firstName.value) == false){ //- Une condition sur W.test(la valeur de V) égal égal faux) => ici test n’a pas d’importance c’est pour donner un nom à la variable associée au paramètre dans les parenthèse.
     } 
     else {
-        firsterror.innerHTMLText = "le format du prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
+        firsterror.innerHTMLText = "le format du Prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
     }
-
+    /*console.log(regexPrenom.test(firstName.value));*/
    });
 
+   let lastName = document.getElementById("lastName");
+   let regexNom = new RegExp (/^([A-Z-0-8]{3,30})$/);
+   const lasterror = document.getElementById("lastNameErrorMsg");
+   const messageNom = "le format Nom est incorrect";
+   form.lastName.addEventListener('change', function() {
+   if(regexNom.test(lastName.value) == false){   
+}
+   else{
+    lasterror.innerHTMLText = "le format du Nom est incorrect";
+}
+   /* console.log(regexNom.test(lastName.value));*/
+   });
+   let city = document.getElementById("city");
+   let regexCity = new RegExp (/^([a-zA-Z]{3,30})/);
+   const cityError = document.getElementById("cityErrorMsg");
+   const messageCity = "le format ville est incorrect";
+   form.city.addEventListener('change', function() {
+    if(regexNom.test(city.value) == false){   
+ }
+ else{
+    city.innerHTMLText = "le format ville est incorrect";
+}
+
+   });
    let commander = document.getElementById("order");
    let cartquest = document.querySelector(".cart_order_form_question");
 
