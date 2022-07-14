@@ -188,7 +188,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    form.city.addEventListener('change', function() {
     if(regexPrenomNomVille.test(city.value) == false)  
   {
-    city.innerHTML = messageVille;
+    cityError.innerHTML = messageVille;
   }
    });
 
