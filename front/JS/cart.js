@@ -205,7 +205,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
       email.innerHTMLText = "le format email est incorrect";
     }
    });
-   let adresse = document.getElementById("address");
+  /* let adresse = document.getElementById("address");
    let regexAdresse = new RegExp ('^([a-zA-Z0-9/])$', 'g');
    const addressError = document.getElementById("addressErrorMsg");
    const messageAdresse = "le format adresse est incorrect";
@@ -215,7 +215,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
       adresse.innerHTML = "le format adresse est uncorrect";
     }
 
-   });
+   });*/
    let commander = document.getElementById("order");
    let cartquest = document.querySelector(".cart_order_form_question");
 
