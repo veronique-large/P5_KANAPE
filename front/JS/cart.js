@@ -165,36 +165,33 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    const form = document.querySelector('.cart__order__form');//- Créer la constante Z sur la class : .cart__order__form
    form.firstName.addEventListener('change', function() {//- définir un évènement change sur le Z associé à la variable de V pour lancer une fonction (regardez bien comment vous avez traiter en amont vos addEventListener
 
-    if(regexPrenom.test(firstName.value) == false){ //- Une condition sur W.test(la valeur de V) égal égal faux) => ici test n’a pas d’importance c’est pour donner un nom à la variable associée au paramètre dans les parenthèse.
-    } 
-    else {
-        firsterror.innerHTMLText = "le format du Prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
+    if(regexPrenom.test(firstName.value) == false) //- Une condition sur W.test(la valeur de V) égal égal faux) => ici test n’a pas d’importance c’est pour donner un nom à la variable associée au paramètre dans les parenthèse.
+    {
+      firsterror.innerHTMLText = "le format du Prenom est incorrect";     //- Si la condition est rempli alors X.innerHTML = Y
     }
    /* console.log(regexPrenom.test(firstName.value));*/
    });
 
    let lastName = document.getElementById("lastName");
-   let regexNom = new RegExp ('^([A-Z-0-8]{3,30})$', 'g');
+   let regexNom = new RegExp ('^([A-Z]{3,30})$','g');
    const lasterror = document.getElementById("lastNameErrorMsg");
    const messageNom = "le format Nom est incorrect";
    form.lastName.addEventListener('change', function() {
-   if(regexNom.test(lastName.value) == false){   
-}
-   else{
-    lasterror.innerHTMLText = "le format du Nom est incorrect";
-}
-   /* console.log(regexNom.test(lastName.value));*/
+   if(regexNom.test(lastName.value) == false)
+   {
+     lasterror.innerHTMLText = messageNom;  
+   }
+    console.log(regexNom.test(lastName.value));
    });
    let city = document.getElementById("city");
    let regexCity = new RegExp ('^[a-zA-Z-]{3,30}','g');
    const cityError = document.getElementById("cityErrorMsg");
    const messageCity = "le format ville est incorrect";
    form.city.addEventListener('change', function() {
-    if(regexCity.test(city.value) == false){   
- }
- else{
+    if(regexCity.test(city.value) == false)  
+  {
     city.innerHTMLText = "le format ville est incorrect";
-}
+  }
    /* console.log(regexCity.test(city.value));*/
 
    });
