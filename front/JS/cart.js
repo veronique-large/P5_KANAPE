@@ -173,7 +173,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    });
 
    let lastName = document.getElementById("lastName");
-   let regexNom = new RegExp ('^([A-Z]){3,30}$','g');
+   let regexNom = new RegExp ('^([A-Z]){3,30}$', 'g');
    const lasterror = document.getElementById("lastNameErrorMsg");
    const messageNom = "le format Nom est incorrect";
    form.lastName.addEventListener('change', function() {
@@ -184,7 +184,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    /* console.log(regexNom.test(lastName.value));*/
    });
    let city = document.getElementById("city");
-   let regexCity = new RegExp ('^([a-zA-Z-]){3,30}','g');
+   let regexCity = new RegExp ('^([a-zA-Z-]){3,30}', 'g');
    const cityError = document.getElementById("cityErrorMsg");
    const messageCity = "le format ville est incorrect";
    form.city.addEventListener('change', function() {
@@ -193,6 +193,27 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     city.innerHTMLText = "le format ville est incorrect";
   }
    /* console.log(regexCity.test(city.value));*/
+
+   });
+   let email = document.getElementById("email");
+   let regexMail = new RegExp ('^([a-z0-9/.@])$', 'g');
+   const mailError = document.getElementById("emailErrorMsg");
+   const messageMail = "le format email est incorrect";
+   form.email.addEventListener('change', function() {
+    if(regexMail.test(email.value) == false)
+    {
+      email.innerHTMLText = "le format email est incorrect";
+    }
+   });
+   let adresse = document.getElementById("address");
+   let regexAdresse = new RegExp ('^([a-zA-Z0-9/])$', 'g');
+   const addressError = document.getElementById("addressErrorMsg");
+   const messageAdresse = "le format adresse est incorrect";
+   form.adresse.addEventListener('change', function() {
+    if(regexAdresse.test(adresse.value) == false)
+    {
+      adresse.innerHTML = "le format adresse est uncorrect";
+    }
 
    });
    let commander = document.getElementById("order");
