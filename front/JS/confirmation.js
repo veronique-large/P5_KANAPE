@@ -5,3 +5,4 @@ let order = document.getElementById("orderId");
 order.innerHTML = id;
 };
 test();
+localStorage.clear();
