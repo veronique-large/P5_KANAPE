@@ -1,5 +1,15 @@
 //si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
+if (DonneesLocalStorage)
+{
+  localStorage = [];
+          // on lance tout le code
+}      
+else 
+{
+    alert("le panier est vide");
+        
+}; 
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     let pricesKanap = 0;
     for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
@@ -9,7 +19,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
             quantity:product.quantity,
 
         } //la variable kanap est composee d'un ID d'une couleur et d'une quantite
-
+      
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
         .then(function(reponse) {
@@ -156,7 +166,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalQuantity.innerHTML = kanaps;
     }
     totalCommande();
-
+    
    let firstName = document.getElementById("firstName");
    let lastName = document.getElementById("lastName");
    let city = document.getElementById("city");
