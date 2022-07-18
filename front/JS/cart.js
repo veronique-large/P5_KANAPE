@@ -179,7 +179,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    const messageVille = "le format ville est incorrect";
 
    const form = document.querySelector('.cart__order__form');
-
    form.firstName.addEventListener('change', function() {
     if(regexPrenomNomVille.test(firstName.value) == false) 
     {
@@ -203,26 +202,27 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    });
 
    let email = document.getElementById("email");
-   let regexMail = new RegExp (/^[A-Za-z0-9\-\.]+@([A-Za-z0-9\-]+\.)+[A-Za-z0-9-]{2,4}$/);
+   let regexMail = new RegExp (/^[A-Za-z0-9\-\.]+@+([A-Za-z0-9\-]+\.)+[A-Za-z0-9-]{2,4}$/);
    const mailError = document.getElementById("emailErrorMsg");
    const messageMail = "le format email est incorrect";
-   form.email.addEventListener('change', function() {
+   email.addEventListener('change', function() {
     if(regexMail.test(email.value) == false)
     {
-      email.innerHTML = messageMail;
+      mailError.innerHTML = messageMail;
     }
    });
-  /* let adresse = document.getElementById("address");
+
+   let adresse = document.getElementById("address");
    let regexAdresse = new RegExp (/^[a-zA-Z0-9\s,.'-çñàéèêëïîôüù]$/);
    const addressError = document.getElementById("addressErrorMsg");
    const messageAdresse = "le format adresse est incorrect";
-   form.adresse.addEventListener('change', function() {
+   adresse.addEventListener('change', function() {
     if(regexAdresse.test(adresse.value) == false)
     {
-      adresse.innerHTML = messageAdresse;
+      addressError.innerHTML = messageAdresse;
     }
 
-   });*/
+   });
    let commander = document.getElementById("order");
    let cartquest = document.querySelector(".cart_order_form_question");
 
