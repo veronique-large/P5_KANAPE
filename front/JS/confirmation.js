@@ -5,6 +5,8 @@ let order = document.getElementById("orderId");
 order.innerHTML = id;
 };
 test();
-if (localStorage == localStorage.clear());
+if (localStorage){
+    localStorage.clear();
+}  
 
 
