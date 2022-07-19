@@ -213,7 +213,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    });
 
    let adresse = document.getElementById("address");
-   let regexAdresse = new RegExp (/^[a-zA-Z0-9\s,.'-çñàéèêëïîôüù]$/);
+   let regexAdresse = new RegExp (/^[a-zA-Z0-9\s,.'-çñàéèêëïîôüù]{3,}$/);
    const addressError = document.getElementById("addressErrorMsg");
    const messageAdresse = "le format adresse est incorrect";
    adresse.addEventListener('change', function() {
