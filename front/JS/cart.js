@@ -2,14 +2,15 @@
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
 if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
     let pricesKanap = 0;
-    for(let product of DonneesLocalStorage){ //je cree une boucle for of pour parcourir les donnees du produit           
+    /*if(DonneesLocalStorage){*/
+    
+    for(let product of DonneesLocalStorage) { //je cree une boucle for of pour parcourir les donnees du produit           
         let kanap = {
             id:product.id,
             colors:product.colors,
             quantity:product.quantity,
-
-        } //la variable kanap est composee d'un ID d'une couleur et d'une quantite
-    
+             } //la variable kanap est composee d'un ID d'une couleur et d'une quanti
+          
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
         .then(function(reponse) {
@@ -137,8 +138,16 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalPrice.innerHTML = pricesKanap;
 
     });
+  }
+  /* si le panier est vide*/
+ /*}else if (DonneesLocalStorage == null || DonneesLocalStorage == 0)
+  {
+    document.getElementById("totalQuantity").innerText = 0;
+    document.getElementById("totalPrice").innerText = 0;
+  }*/
+
         }
-    }
+       
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
@@ -258,3 +267,4 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 document.location.href = "confirmation.html?orderId=" + data.orderId;
 })
 });
+
