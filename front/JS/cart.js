@@ -9,7 +9,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
             id:product.id,
             colors:product.colors,
             quantity:product.quantity,
-             } //la variable kanap est composee d'un ID d'une couleur et d'une quanti
+             } //la variable kanap est composee d'un ID d'une couleur et d'une quantite
           
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
@@ -140,14 +140,13 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     });
   }
   /* si le panier est vide*/
- }else if (DonneesLocalStorage == null || DonneesLocalStorage == 0)
+}else if (DonneesLocalStorage == null || DonneesLocalStorage == 0)
   {
     document.getElementById("totalQuantity").innerText = 0;
     document.getElementById("totalPrice").innerText = 0;
   }
-
-        
-
+  
+    
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
@@ -165,7 +164,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalQuantity.innerHTML = kanaps;
     }
     totalCommande();
-  }   
+}
    let firstName = document.getElementById("firstName");
    let lastName = document.getElementById("lastName");
    let city = document.getElementById("city");
@@ -178,6 +177,23 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    const messageVille = "le format ville est incorrect";
 
    const form = document.querySelector('.cart__order__form');
+   let commander = document.getElementById("order");
+   let cartquest = document.querySelector(".cart_order_form_question");
+
+   commander.addEventListener('click', function(event){
+    if (!DonneesLocalStorage) 
+    {
+      alert("votre panier est vide");
+    }
+    else if (firstName.value == "" || lastName.value == "" || city.value == "" || email.value == "" || adresse.value == "")
+    {
+      alert("veuillez renseigner tout les champs de formulaire");
+    }
+      event.preventDefault();
+    /*else 
+     {*/
+   
+    
    form.firstName.addEventListener('change', function() {
     if(regexPrenomNomVille.test(firstName.value) == false) 
     {
@@ -222,13 +238,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     }
 
    });
-   
-   let commander = document.getElementById("order");
-   let cartquest = document.querySelector(".cart_order_form_question");
-
-   commander.addEventListener('click', function(event) {
-            event.preventDefault();
-    
+  
     let storage = [];
     for(let product of DonneesLocalStorage){           
         storage.push(product.id);
@@ -246,7 +256,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     products : storage,
        }
     console.log(formulaire);
-   
+        
     const options =
     {
       method: "POST",
@@ -257,7 +267,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
       },
       body: JSON.stringify(formulaire),
     };
-
+  
     fetch("http://localhost:3000/api/products/order", options)
 
       .then((res) => res.json())
@@ -266,5 +276,5 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
 
 document.location.href = "confirmation.html?orderId=" + data.orderId;
 })
-});
+  });
 
