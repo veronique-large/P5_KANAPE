@@ -224,11 +224,15 @@ let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
       alert("votre panier est vide");
   }else
     if (firstName.value == "" || lastName.value == "" || city.value == "" || email.value == "" || adresse.value == ""){
-      alert("veuillez renseigner tout les champs de formulaire")
+      alert("veuillez renseigner tout les champs de formulaire");
+  }
+  else if (regexPrenomNomVille.test(firstName.value) == false || regexPrenomNomVille.test(lastName.value) == false ||
+  regexAdresse.test(adresse.value) == false || regexPrenomNomVille.test(city.value) == false ||
+  regexMail.test(email.value) == false){
+  alert("Veuillez renseigner des coordonnées valides");
   }
   else {
     event.preventDefault(); 
-  
   
   
     let storage = [];
