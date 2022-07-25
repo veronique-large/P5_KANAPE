@@ -1,10 +1,10 @@
-fetch("http://localhost:3000/api/products")
+fetch("http://localhost:3000/api/products/")
     .then(function(res) {
         if (res.ok) {
             return res.json();
      }
     })
-    /**creation de la boucle pour obtenir les informations de chaque article */
+    /*creation de la boucle pour obtenir les informations de chaque article */
     .then(function(products){
         products.forEach(product => {
 
@@ -12,7 +12,7 @@ fetch("http://localhost:3000/api/products")
     let items = document.getElementById('items');
     
     let a = document.createElement('a');
-    a.href ="./product.html"+"?id="+product._id;
+    a.href ="./product.html?id="+product._id;
     items.appendChild(a);
 
     let article = document.createElement('article');
@@ -36,5 +36,5 @@ fetch("http://localhost:3000/api/products")
 
 
      
-})
-    })
+});
+    });
