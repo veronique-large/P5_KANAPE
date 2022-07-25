@@ -28,19 +28,19 @@ fetch(str)
             description.innerHTML = product.description;
 
             let colors = document.querySelector('#colors');/* je créé une variable pour lui donner comme référence la balise liée à l’ID Colors*/
-
-            product.colors.forEach(color => {/* je cree une boucle pour appeler les donnees de toutes les couleurs, product correspond au produit, colors à leur valeur,product.colors(identifiant) identifie les couleurs du produit, color(argument) fait reference à la couleur ce qui permet de l'appeler*/
-                let optionColor = document.createElement('option');/* je créé une variable que j'appelle optionColor  pour créer l'element option*/
-                colors.appendChild(optionColor);/*je definie la variable optionColor comme étant l'enfant de colors*/
+            // gestion des options de couleurs
+            product.colors.forEach(color => {          
+                let optionColor = document.createElement('option');  
+                colors.appendChild(optionColor);
                 optionColor.innerHTML = color;/*J'applique la variable optionColors à l'interieur de HTML, la valeur du mot clé color*/
                 optionColor.value = color; /*J’applique à la variable optionColor, la valeur du mot cle color (paramètre dans la boucle ligne 31) */     
-            });/*la fermeture du bloc*/
+            });
 
             let itemQuantity = document.querySelector('#quantity');/*je créé une variable pour lui donner comme reference la balise liee à l'ID quantity*/
  
    
-    let addButton = document.querySelector('#addToCart');/*je cree une variable pour lui donner comme reference la balise liee à l'ID buttonToCart*/
-     addButton.addEventListener('click', function() {/*j'ajoute un ecouteur d'evenements sur le addButton, on écoute l'evenement click*/
+    let addButton = document.querySelector('#addToCart');
+     addButton.addEventListener('click', function() {
             let kanap = {
                 id:id, 
                 colors:document.getElementById("colors").value,
@@ -48,10 +48,9 @@ fetch(str)
             }
             // si des donnees existente dans le localStorage recuperer
             let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
-            // si il y a des donnees dans le localStorage pousser le produit selectionne
+            
 
-           const recherche = () =>{ //je cree une constante de recherche 
-            //ajout du produit dans le tableau des donnees
+           const recherche = () =>{  
                 DonneesLocalStorage.push(kanap);
             
                 localStorage.setItem("kanap", JSON.stringify(DonneesLocalStorage));
