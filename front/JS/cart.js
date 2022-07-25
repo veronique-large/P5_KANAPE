@@ -1,15 +1,13 @@
 //si les donnees du produit existe dans le LocalStorage on recupere les donnees du produit
 let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
-if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le sessionStorage
-    let pricesKanap = 0;
     if(DonneesLocalStorage){
-    
-    for(let product of DonneesLocalStorage) { //je cree une boucle for of pour parcourir les donnees du produit           
+      let pricesKanap = 0;
+    for(let product of DonneesLocalStorage) {           
         let kanap = {
             id:product.id,
             colors:product.colors,
             quantity:product.quantity,
-             } //la variable kanap est composee d'un ID d'une couleur et d'une quantite
+             }
           
         fetch("http://localhost:3000/api/products/" + kanap.id) 
       
@@ -145,14 +143,14 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     document.getElementById("totalQuantity").innerText = 0;
     document.getElementById("totalPrice").innerText = 0;
   }
-  
+
     
     // on cree une fonction, ensuite on cree une variable X qui se rapporte aux
     // DLS, creer ensuite une boucle qui fait appel à la variable X a l interieur
     //de la boucle on cree une variable Y += au nombre de product.quantity, fermer la boucle
     // on cree la variable totalQuantity qui se rapporte à l'id pour mettre dans
     // son innerHTML la variable Y, fermer la function et la lancer
-    function totalCommande() {
+    function totalCommande(){
     let total = DonneesLocalStorage;
     let kanaps = 0;
 
@@ -164,7 +162,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     totalQuantity.innerHTML = kanaps;
     }
     totalCommande();
-}
+  
    let firstName = document.getElementById("firstName");
    let lastName = document.getElementById("lastName");
    let city = document.getElementById("city");
@@ -175,46 +173,6 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
    const messageNom = "le format Nom est incorrect";
    const cityError = document.getElementById("cityErrorMsg");
    const messageVille = "le format ville est incorrect";
-
-   const form = document.querySelector('.cart__order__form');
-   let commander = document.getElementById("order");
-   let cartquest = document.querySelector(".cart_order_form_question");
-
-   commander.addEventListener('click', function(event){
-    if (!DonneesLocalStorage) 
-    {
-      alert("votre panier est vide");
-    }
-    else if (firstName.value == "" || lastName.value == "" || city.value == "" || email.value == "" || adresse.value == "")
-    {
-      alert("veuillez renseigner tout les champs de formulaire");
-    }
-      event.preventDefault();
-    /*else 
-     {*/
-   
-    
-   form.firstName.addEventListener('change', function() {
-    if(regexPrenomNomVille.test(firstName.value) == false) 
-    {
-      firsterror.innerHTML = messagePrenom;     
-    }
-   });
-
-   
-   form.lastName.addEventListener('change', function() {
-   if(regexPrenomNomVille.test(lastName.value) == false)
-   {
-     lasterror.innerHTML = messageNom;  
-   }
-  });
-   
-   form.city.addEventListener('change', function() {
-    if(regexPrenomNomVille.test(city.value) == false)  
-  {
-    cityError.innerHTML = messageVille;
-  }
-   });
 
    let email = document.getElementById("email");
    let regexMail = new RegExp (/^[A-Za-z0-9\-\.]+@+([A-Za-z0-9\-]+\.)+[A-Za-z0-9-]{2,4}$/);
@@ -238,6 +196,43 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     }
 
    });
+
+   const form = document.querySelector('.cart__order__form');
+   let commander = document.getElementById("order");
+   let cartquest = document.querySelector(".cart__order__form__question");
+   form.firstName.addEventListener('change', function() {
+    if(regexPrenomNomVille.test(firstName.value) == false) 
+    {
+      firsterror.innerHTML = messagePrenom;     
+    }
+   });
+
+   
+   form.lastName.addEventListener('change', function() {
+   if(regexPrenomNomVille.test(lastName.value) == false)
+   {
+     lasterror.innerHTML = messageNom;  
+   }
+  });
+   
+   form.city.addEventListener('change', function() {
+    if(regexPrenomNomVille.test(city.value) == false)  
+  {
+    cityError.innerHTML = messageVille;
+  }
+   });
+
+   commander.addEventListener('click', function(event){
+    if (!DonneesLocalStorage){  
+      alert("votre panier est vide");
+  }else
+    if (firstName.value == "" || lastName.value == "" || city.value == "" || email.value == "" || adresse.value == ""){
+      alert("veuillez renseigner tout les champs de formulaire")
+  }
+  else {
+    event.preventDefault(); 
+  
+  
   
     let storage = [];
     for(let product of DonneesLocalStorage){           
@@ -256,7 +251,7 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
     products : storage,
        }
     console.log(formulaire);
-        
+              
     const options =
     {
       method: "POST",
@@ -275,6 +270,10 @@ if (DonneesLocalStorage){//je cree une condition si il y a des donnees dans le s
       {
 
 document.location.href = "confirmation.html?orderId=" + data.orderId;
-})
-  });
+      })
+    }
+}) 
+
+
+
 
