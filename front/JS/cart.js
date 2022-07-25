@@ -80,7 +80,6 @@ let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
     itemImg.classList.add("cart__item__img");
     article.appendChild(itemImg);
 
-    //creation de l'image du kanap selectionne dans le chariot
     let img = document.createElement('img');
     img.src = cart.imageUrl;
     img.alt = cart.altTxt;
@@ -95,7 +94,6 @@ let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
     deleteI.innerHTML = (cart.delete, "supprimer");
     itemSettingsDelete.appendChild(deleteI);
 
-    //on ecoute l'evenement change, la function preventDefaut empeche l'execution du comportement par defaut  
     quantity.addEventListener('change', function(event) {
         event.preventDefault();
 
@@ -122,7 +120,6 @@ let DonneesLocalStorage = JSON.parse(localStorage.getItem("kanap"));
         let canape = kanap.id; 
         let canapeCouleur = kanap.colors;
 
-    // la variable filtre les donnees LS, une fonction est parametrée lorsque p.id est inégal à produit, ou que p.colors est inégal à produitCouleur  
     let filtre = DonneesLocalStorage.filter(p => p.id != canape ||  p.colors != canapeCouleur);
     event.target.closest(".cart__item").remove();     //lors de l'evenement sur l'article supprime 
 
